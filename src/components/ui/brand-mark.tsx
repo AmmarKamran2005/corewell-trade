@@ -1,10 +1,15 @@
 import { cn } from "@/lib/utils";
 
 /**
- * The Corewell Systems mark — six nodes around a core.
+ * The Corewell Systems mark.
  *
- * Inline SVG rather than a raster asset so it inherits currentColor,
- * stays crisp at every size, and needs no light/dark variant swap.
+ * Six rings around a solid core, joined by five segments. The sixth edge —
+ * between the two right-hand rings — is deliberately missing: the open side is
+ * what makes the outline read as a "C".
+ *
+ * Drawn rather than loaded as an image so it inherits `currentColor`, which
+ * lets it step up to a lighter tint on the dark navy shells where the brand
+ * teal would fall below contrast.
  */
 export function BrandMark({
   className,
@@ -22,24 +27,32 @@ export function BrandMark({
       role="img"
       aria-label="Corewell Systems"
     >
+      {/* Connectors, trimmed so they meet the rings instead of crossing them. */}
       <g
         fill="none"
         stroke="currentColor"
-        strokeWidth={6}
+        strokeWidth={4}
         strokeLinecap="round"
-        strokeLinejoin="round"
       >
-        <path d="M24 35 L50 20 M50 20 L76 35 M24 35 L24 65 M24 65 L50 80 M50 80 L76 65" />
+        <path d="M59.2 25.3 L66.8 29.7" />
+        <path d="M40.8 25.3 L33.2 29.7" />
+        <path d="M24 45.6 L24 54.4" />
+        <path d="M33.2 70.3 L40.8 74.7" />
+        <path d="M59.2 74.7 L66.8 70.3" />
       </g>
-      <g fill="currentColor">
-        <circle cx="50" cy="20" r="7" />
-        <circle cx="76" cy="35" r="7" />
-        <circle cx="76" cy="65" r="7" />
-        <circle cx="50" cy="80" r="7" />
-        <circle cx="24" cy="65" r="7" />
-        <circle cx="24" cy="35" r="7" />
-        <circle cx="50" cy="50" r="11" />
+
+      {/* The six vertices are rings, not dots. */}
+      <g fill="none" stroke="currentColor" strokeWidth={4}>
+        <circle cx="50" cy="20" r="8.4" />
+        <circle cx="76" cy="35" r="8.4" />
+        <circle cx="76" cy="65" r="8.4" />
+        <circle cx="50" cy="80" r="8.4" />
+        <circle cx="24" cy="65" r="8.4" />
+        <circle cx="24" cy="35" r="8.4" />
       </g>
+
+      {/* Only the core is filled. */}
+      <circle cx="50" cy="50" r="9.4" fill="currentColor" />
     </svg>
   );
 }

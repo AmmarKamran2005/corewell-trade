@@ -27,7 +27,8 @@ export const metadata: Metadata = {
   authors: [{ name: brand.company, url: brand.companyUrl }],
   creator: brand.company,
   publisher: brand.company,
-  icons: { icon: "/favicon.svg" },
+  /* Favicon comes from src/app/icon.png — the real brand asset, picked up by
+     Next's file convention, so there is nothing to declare here. */
   /* Belt and braces alongside robots.ts — a crawler that ignores robots.txt
      still sees the meta tag, and neither should index invented records. */
   robots: { index: false, follow: false, nocache: true },
