@@ -52,7 +52,7 @@ export function PosTopBar() {
         title="Back to Corewell Trade"
         className="flex items-center gap-2.5 flex-shrink-0 h-11 px-1.5 -mx-1.5 rounded-lg hover:bg-navy-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-300"
       >
-        <BrandMark size={26} className="text-brand-300" />
+        <BrandMark size={26} onDark />
         <span className="hidden sm:block text-sm font-bold leading-none">
           {brand.productParts.lead} <span className="text-brand-300">POS</span>
         </span>
