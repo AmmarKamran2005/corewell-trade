@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   creator: brand.company,
   publisher: brand.company,
   icons: { icon: "/favicon.svg" },
+  /* Belt and braces alongside robots.ts — a crawler that ignores robots.txt
+     still sees the meta tag, and neither should index invented records. */
+  robots: { index: false, follow: false, nocache: true },
 };
 
 export default function RootLayout({
