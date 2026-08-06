@@ -38,7 +38,9 @@ export const metadata: Metadata = {
     url: brand.demoUrl,
   },
   /* Only the landing page is indexable; the shells inside re-declare noindex.
-     Favicon comes from src/app/icon.png via Next's file convention. */
+     Favicon comes from src/app/icon.png via Next's file convention. Do not add
+     a favicon.ico back — the one create-next-app ships is Vercel's mark, and an
+     .ico alongside icon.png is what browsers pick for the tab. */
 };
 
 export default function RootLayout({
