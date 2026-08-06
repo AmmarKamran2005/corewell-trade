@@ -6,14 +6,12 @@ import {
   Truck,
   Package,
   BookOpen,
-  Moon,
   BarChart3,
   Sparkles,
   MessageSquare,
   Shield,
   ScanLine,
   Globe,
-
 } from "lucide-react";
 
 export type NavBadge = {
@@ -155,16 +153,12 @@ export const navigation: NavNode[] = [
       { label: "Period Close",      href: "/accounting/period-close",    match: "accounting.pc" },
     ],
   },
-  {
-    type: "group",
-    label: "Zakat",
-    icon: Moon,
-    match: "zakat",
-    children: [
-      { label: "Periods",      href: "/zakat/periods",      match: "zakat.periods" },
-      { label: "Calculations", href: "/zakat/calculations", match: "zakat.calc" },
-    ],
-  },
+  /**
+   * Zakat is built and its routes still resolve at /zakat/*, but it is not in
+   * the sidebar: the demo is the source of the screenshots on the marketing
+   * site, and the sidebar is in nearly all of them, so it stays free of
+   * anything that implies a particular market.
+   */
 
   { type: "section", label: "Insights" },
   {

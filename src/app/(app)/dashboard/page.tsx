@@ -38,7 +38,7 @@ import {
   aiInsight,
   currentUser,
 } from "@/data/mock";
-import { formatCompact, formatMoney, formatNumber, formatPercent } from "@/lib/format";
+import { formatCompact, formatMoney, formatPercent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const STOCK_ALERT_STYLES = {
