@@ -17,21 +17,28 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(brand.demoUrl),
   title: {
-    default: `${brand.product} — ${brand.tagline}`,
+    default: `${brand.product} — free ERP, POS and online store demo`,
     template: `%s · ${brand.product}`,
   },
   description:
-    "Multi-branch POS & ERP for distribution businesses — sales, purchases, inventory, accounting, and AI-powered insights.",
+    "Open a working multi-branch distribution ERP: trade desk, point-of-sale till and consumer storefront over one catalogue, one stock pool and one ledger. A demonstration on sample data — no signup, nothing to install.",
   applicationName: brand.product,
   authors: [{ name: brand.company, url: brand.companyUrl }],
   creator: brand.company,
   publisher: brand.company,
-  /* Favicon comes from src/app/icon.png — the real brand asset, picked up by
-     Next's file convention, so there is nothing to declare here. */
-  /* Belt and braces alongside robots.ts — a crawler that ignores robots.txt
-     still sees the meta tag, and neither should index invented records. */
-  robots: { index: false, follow: false, nocache: true },
+  alternates: { canonical: "/login" },
+  openGraph: {
+    type: "website",
+    siteName: brand.product,
+    title: `${brand.product} — ERP, POS and online store demo`,
+    description:
+      "A working distribution ERP you can click through: orders, credit control, inventory, purchasing, double-entry accounting, a POS till and a consumer storefront. Sample data, no signup.",
+    url: brand.demoUrl,
+  },
+  /* Only the landing page is indexable; the shells inside re-declare noindex.
+     Favicon comes from src/app/icon.png via Next's file convention. */
 };
 
 export default function RootLayout({

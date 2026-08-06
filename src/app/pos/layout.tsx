@@ -6,6 +6,9 @@ import { brand } from "@/lib/brand";
 export const metadata: Metadata = {
   title: "Point of Sale",
   description: `Counter till for ${brand.product}.`,
+  /* Sample sales against invented customers — the landing page is the only
+     page here that belongs in a search result. */
+  robots: { index: false, follow: false, nocache: true },
 };
 
 /**

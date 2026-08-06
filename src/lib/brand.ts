@@ -20,6 +20,8 @@ export const brand = {
   company: "Corewell Systems",
   companyUrl: "https://corewellsystems.com",
   contactEmail: "contact@corewellsystems.com",
+  /** Where this demo is served from — used for canonical URLs and the sitemap. */
+  demoUrl: "https://trade.corewellsystems.com",
   /** Rendered in footers as "© {year} {company}". */
   copyrightYear: 2026,
 

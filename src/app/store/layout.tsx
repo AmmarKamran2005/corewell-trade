@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   },
   description:
     "Consumer storefront running on the same catalogue, stock and ledger as the trade business.",
+  /* Invented products at invented prices for a fictional company — this must
+     never appear as a shopping result. */
+  robots: { index: false, follow: false, nocache: true },
 };
 
 /**

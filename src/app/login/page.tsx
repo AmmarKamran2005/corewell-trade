@@ -50,7 +50,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2 bg-white dark:bg-navy-950 font-sans text-navy-900 dark:text-white antialiased">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-navy-950 font-sans text-navy-900 dark:text-white antialiased">
+      {/* The right-hand panel carries the same message, but it is hidden below
+          lg — and a visitor arriving from a search result needs to know what
+          this is before they read anything else. In normal flow rather than
+          absolute, so it reserves its height instead of covering the logo. */}
+      <p className="flex-shrink-0 px-4 py-1.5 text-center text-2xs bg-brand-50 text-brand-700 border-b border-brand-200 dark:bg-brand/15 dark:text-brand-300 dark:border-brand/25">
+        Demonstration system — sample data. Nothing here is a real customer,
+        order or balance, and nothing you type is saved.
+      </p>
+
+      <div className="flex-1 grid lg:grid-cols-2 min-h-0">
+
       {/* ── LEFT: Form ───────────────────────────────────────── */}
       <div className="flex flex-col px-6 py-10 sm:px-10 lg:px-16 xl:px-24 relative">
         <div className="flex items-center justify-between mb-12">
@@ -69,8 +80,16 @@ export default function LoginPage() {
 
         <div className="flex-1 flex flex-col justify-center max-w-md w-full mx-auto lg:mx-0">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold tracking-tight">Welcome back</h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">Sign in to your Corewell Trade account to continue.</p>
+            <h1 className="text-3xl font-bold tracking-tight">
+              Open the {brand.product} demo
+            </h1>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+              A multi-branch distribution ERP with a point-of-sale till and a
+              consumer storefront — orders and credit control, inventory and
+              purchasing, double-entry accounting, and a checkout, all over one
+              catalogue and one stock pool. Sign in with the demo account below;
+              there is nothing to install and no signup.
+            </p>
           </div>
 
           {serverError && (
@@ -225,6 +244,7 @@ export default function LoginPage() {
               <div className="text-sm text-slate-300 mt-1 leading-snug">Every JE immutable, every action logged</div>
             </div>
           </div>
+        </div>
         </div>
       </div>
       <Toaster />
