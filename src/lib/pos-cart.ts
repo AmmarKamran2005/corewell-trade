@@ -71,28 +71,28 @@ export function computeTotals(lines: CartLine[], orderDiscountPercent: number): 
   );
 
   return {
-    grossSubtotal: round2(grossSubtotal),
-    lineDiscount: round2(lineDiscount),
-    orderDiscount: round2(orderDiscount),
-    netSubtotal: round2(netSubtotal),
-    tax: round2(tax),
-    total: round2(netSubtotal + tax),
+    grossSubtotal: roundMinor(grossSubtotal),
+    lineDiscount: roundMinor(lineDiscount),
+    orderDiscount: roundMinor(orderDiscount),
+    netSubtotal: roundMinor(netSubtotal),
+    tax: roundMinor(tax),
+    total: roundMinor(netSubtotal + tax),
     itemCount: lines.reduce((s, l) => s + l.qty, 0),
     lineCount: lines.length,
   };
 }
 
 export function tenderedTotal(tenders: Tender[]) {
-  return round2(tenders.reduce((s, t) => s + t.amount, 0));
+  return roundMinor(tenders.reduce((s, t) => s + t.amount, 0));
 }
 
 /** Positive = still to collect. Negative = change owed to the customer. */
 export function balanceDue(total: number, tenders: Tender[]) {
-  return round2(total - tenderedTotal(tenders));
+  return roundMinor(total - tenderedTotal(tenders));
 }
 
 export function changeDue(total: number, tenders: Tender[]) {
-  return Math.max(0, round2(tenderedTotal(tenders) - total));
+  return Math.max(0, roundMinor(tenderedTotal(tenders) - total));
 }
 
 export function addProduct(lines: CartLine[], product: Product, qty = 1): CartLine[] {
@@ -151,6 +151,13 @@ export function searchCatalogue(catalogue: Product[], query: string): Product[] 
   );
 }
 
-function round2(n: number) {
-  return Math.round((n + Number.EPSILON) * 100) / 100;
+/**
+ * Money is held in whole minor units, so every figure the till derives has to
+ * land on one. Rounding to two decimals instead leaves fractions of a cent
+ * alive: a total of 5239.4 renders as $52.39, the exact-tender button offers
+ * 52.39, and the sale is then left 0.4 of a cent short — displayed as $0.00,
+ * with Complete sale disabled and nothing on screen explaining why.
+ */
+function roundMinor(n: number) {
+  return Math.round(n + Number.EPSILON);
 }

@@ -66,12 +66,12 @@ export function computeBasket(
   lines: BasketLine[],
   opts: { deliveryCode?: string; paymentCode?: string; promo?: string } = {}
 ): BasketTotals {
-  const subtotal = round2(lines.reduce((s, l) => s + l.unitPrice * l.qty, 0));
+  const subtotal = roundMinor(lines.reduce((s, l) => s + l.unitPrice * l.qty, 0));
 
   const promo = promoCodes.find(
     (p) => p.code === (opts.promo ?? "").trim().toUpperCase() && subtotal >= p.minSubtotal
   );
-  const discount = promo ? round2((subtotal * promo.percentOff) / 100) : 0;
+  const discount = promo ? roundMinor((subtotal * promo.percentOff) / 100) : 0;
   const afterDiscount = subtotal - discount;
 
   const method = deliveryMethods.find((d) => d.code === opts.deliveryCode) ?? null;
@@ -79,16 +79,16 @@ export function computeBasket(
   let freeDeliveryShortfall: number | null = null;
   if (method?.freeOver != null) {
     if (afterDiscount >= method.freeOver) deliveryFee = 0;
-    else freeDeliveryShortfall = round2(method.freeOver - afterDiscount);
+    else freeDeliveryShortfall = roundMinor(method.freeOver - afterDiscount);
   }
 
   const payment = paymentMethods.find((p) => p.code === opts.paymentCode) ?? null;
   const surcharge = payment ? payment.surcharge : 0;
 
-  const total = round2(afterDiscount + deliveryFee + surcharge);
+  const total = roundMinor(afterDiscount + deliveryFee + surcharge);
   /* Retail prices already contain the tax — show the shopper how much of what
      they are paying is tax, without changing what they pay. */
-  const taxIncluded = round2(afterDiscount - afterDiscount / (1 + TAX_RATE / 100));
+  const taxIncluded = roundMinor(afterDiscount - afterDiscount / (1 + TAX_RATE / 100));
 
   return {
     itemCount: lines.reduce((s, l) => s + l.qty, 0),
@@ -122,6 +122,7 @@ export function paymentUnavailableReason(code: string, total: number): string | 
   return null;
 }
 
-function round2(n: number) {
-  return Math.round((n + Number.EPSILON) * 100) / 100;
+/** Whole minor units, for the reason given in pos-cart.ts. */
+function roundMinor(n: number) {
+  return Math.round(n + Number.EPSILON);
 }
