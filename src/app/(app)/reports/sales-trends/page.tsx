@@ -12,12 +12,12 @@ import { Badge } from "@/components/ui/badge";
 import { formatCompact } from "@/lib/format";
 
 const REGIONS = [
-  { month: "Nov", Karachi: 8200000, Lahore: 4200000, Islamabad: 1800000 },
-  { month: "Dec", Karachi: 9100000, Lahore: 5800000, Islamabad: 2100000 },
-  { month: "Jan", Karachi: 10400000, Lahore: 6200000, Islamabad: 2400000 },
-  { month: "Feb", Karachi: 9800000, Lahore: 5900000, Islamabad: 2200000 },
-  { month: "Mar", Karachi: 11200000, Lahore: 7100000, Islamabad: 2600000 },
-  { month: "Apr", Karachi: 12400000, Lahore: 6850000, Islamabad: 2570000 },
+  { month: "Nov", Central: 8200000, Northgate: 4200000, Harbour: 1800000 },
+  { month: "Dec", Central: 9100000, Northgate: 5800000, Harbour: 2100000 },
+  { month: "Jan", Central: 10400000, Northgate: 6200000, Harbour: 2400000 },
+  { month: "Feb", Central: 9800000, Northgate: 5900000, Harbour: 2200000 },
+  { month: "Mar", Central: 11200000, Northgate: 7100000, Harbour: 2600000 },
+  { month: "Apr", Central: 12400000, Northgate: 6850000, Harbour: 2570000 },
 ];
 
 const PRODUCTS = [
@@ -65,12 +65,12 @@ export default function SalesTrendsPage() {
                   <BarChart data={REGIONS} margin={{ top: 5, right: 0, left: -10, bottom: 0 }}>
                     <CartesianGrid stroke={gridColor} vertical={false} />
                     <XAxis dataKey="month" tick={{ fill: tickColor, fontSize: 11 }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fill: tickColor, fontSize: 11, fontFamily: "JetBrains Mono" }} axisLine={false} tickLine={false} tickFormatter={(v) => v >= 100000 ? `${(v / 100000).toFixed(0)}L` : `${v / 1000}K`} />
+                    <YAxis tick={{ fill: tickColor, fontSize: 11, fontFamily: "JetBrains Mono" }} axisLine={false} tickLine={false} tickFormatter={(v) => formatCompact(v)} />
                     <Tooltip contentStyle={{ backgroundColor: "#12232B", border: "none", borderRadius: 8, padding: "8px 12px", fontSize: 12 }} labelStyle={{ color: "#7CCEC5" }} itemStyle={{ color: "white" }} formatter={(v) => formatCompact(Number(v))} />
                     <Legend wrapperStyle={{ fontSize: 11 }} />
-                    <Bar dataKey="Karachi"   stackId="a" fill={isDark ? "#45B2A8" : "#0F766E"} />
-                    <Bar dataKey="Lahore"    stackId="a" fill="#3B82F6" />
-                    <Bar dataKey="Islamabad" stackId="a" fill="#10B981" />
+                    <Bar dataKey="Central"   stackId="a" fill={isDark ? "#45B2A8" : "#0F766E"} />
+                    <Bar dataKey="Northgate"    stackId="a" fill="#3B82F6" />
+                    <Bar dataKey="Harbour" stackId="a" fill="#10B981" />
                   </BarChart>
                 </ResponsiveContainer>
               )}
@@ -119,7 +119,7 @@ export default function SalesTrendsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {(["Karachi", "Lahore", "Islamabad"] as const).map((city) => {
+                  {(["Central", "Northgate", "Harbour"] as const).map((city) => {
                     const total = REGIONS.reduce((s, r) => s + r[city], 0);
                     const max = Math.max(...REGIONS.map((r) => r[city]));
                     return (

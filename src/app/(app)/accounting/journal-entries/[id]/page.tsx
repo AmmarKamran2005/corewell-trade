@@ -15,11 +15,11 @@ import { formatMoney, formatDate } from "@/lib/format";
 import { toast } from "@/components/ui/toaster";
 
 const MOCK_LINES = [
-  { id: 1, accountCode: "1130", accountName: "Accounts Receivable",      debit: 145000, credit: 0,      branch: "Karachi", desc: "Hafeez Center #28 — INV-142" },
-  { id: 2, accountCode: "4001", accountName: "Sales Revenue",             debit: 0,      credit: 122881, branch: "Karachi", desc: "Sales tax exclusive" },
-  { id: 3, accountCode: "2110", accountName: "Output Sales Tax Payable",  debit: 0,      credit: 22119,  branch: "Karachi", desc: "GST 18%" },
-  { id: 4, accountCode: "5001", accountName: "Cost of Goods Sold",        debit: 84500,  credit: 0,      branch: "Karachi", desc: "Avg cost × qty" },
-  { id: 5, accountCode: "1140", accountName: "Inventory",                  debit: 0,      credit: 84500,  branch: "Karachi", desc: "Stock reduced" },
+  { id: 1, accountCode: "1130", accountName: "Accounts Receivable",      debit: 145000, credit: 0,      branch: "Central", desc: "Riverside Plaza #28 — INV-142" },
+  { id: 2, accountCode: "4001", accountName: "Sales Revenue",             debit: 0,      credit: 122881, branch: "Central", desc: "Sales tax exclusive" },
+  { id: 3, accountCode: "2110", accountName: "Output Sales Tax Payable",  debit: 0,      credit: 22119,  branch: "Central", desc: "Sales tax 18%" },
+  { id: 4, accountCode: "5001", accountName: "Cost of Goods Sold",        debit: 84500,  credit: 0,      branch: "Central", desc: "Avg cost × qty" },
+  { id: 5, accountCode: "1140", accountName: "Inventory",                  debit: 0,      credit: 84500,  branch: "Central", desc: "Stock reduced" },
 ];
 
 export default function JEDetailPage() {

@@ -27,9 +27,9 @@ type Period = {
 
 const PERIODS: Period[] = [
   { id: 1, period: "Apr 2026", year: 2026, branch: "All",       isClosed: false, draftCount: 1, unreconciledCount: 3, unpostedInvoicesCount: 0,  jeCount: 142 },
-  { id: 2, period: "Mar 2026", year: 2026, branch: "All",       isClosed: true,  draftCount: 0, unreconciledCount: 0, unpostedInvoicesCount: 0, closedBy: "Hassan Raza", closedAt: "2026-04-05", jeCount: 168 },
-  { id: 3, period: "Feb 2026", year: 2026, branch: "All",       isClosed: true,  draftCount: 0, unreconciledCount: 0, unpostedInvoicesCount: 0, closedBy: "Hassan Raza", closedAt: "2026-03-04", jeCount: 154 },
-  { id: 4, period: "Jan 2026", year: 2026, branch: "All",       isClosed: true,  draftCount: 0, unreconciledCount: 0, unpostedInvoicesCount: 0, closedBy: "Hassan Raza", closedAt: "2026-02-03", jeCount: 142 },
+  { id: 2, period: "Mar 2026", year: 2026, branch: "All",       isClosed: true,  draftCount: 0, unreconciledCount: 0, unpostedInvoicesCount: 0, closedBy: "Hugo Ramos", closedAt: "2026-04-05", jeCount: 168 },
+  { id: 3, period: "Feb 2026", year: 2026, branch: "All",       isClosed: true,  draftCount: 0, unreconciledCount: 0, unpostedInvoicesCount: 0, closedBy: "Hugo Ramos", closedAt: "2026-03-04", jeCount: 154 },
+  { id: 4, period: "Jan 2026", year: 2026, branch: "All",       isClosed: true,  draftCount: 0, unreconciledCount: 0, unpostedInvoicesCount: 0, closedBy: "Hugo Ramos", closedAt: "2026-02-03", jeCount: 142 },
 ];
 
 export default function PeriodClosePage() {

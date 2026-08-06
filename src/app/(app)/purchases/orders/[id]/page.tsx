@@ -30,9 +30,9 @@ const MOCK_ITEMS = [
 ];
 
 const ACTIVITY = [
-  { id: 1, user: "Ahmed Riaz",   action: "created PO",                  time: "30 Apr · 10:00 AM", icon: FileText, variant: "info" as const },
-  { id: 2, user: "Ahmed Riaz",   action: "submitted for approval",      time: "30 Apr · 10:15 AM", icon: CheckCircle2, variant: "info" as const },
-  { id: 3, user: "Adnan Sheikh",   action: "approved PO",                  time: "30 Apr · 11:30 AM", icon: CheckCircle2, variant: "success" as const },
+  { id: 1, user: "Adam Rios",   action: "created PO",                  time: "30 Apr · 10:00 AM", icon: FileText, variant: "info" as const },
+  { id: 2, user: "Adam Rios",   action: "submitted for approval",      time: "30 Apr · 10:15 AM", icon: CheckCircle2, variant: "info" as const },
+  { id: 3, user: "Alex Hartley",   action: "approved PO",                  time: "30 Apr · 11:30 AM", icon: CheckCircle2, variant: "success" as const },
   { id: 4, user: "System",       action: "PO emailed to supplier",      time: "30 Apr · 11:31 AM", icon: Mail, variant: "info" as const },
 ];
 
@@ -212,8 +212,8 @@ export default function PODetailPage() {
                     <Link href="/purchases/grns" className="block p-3 border border-slate-200 dark:border-navy-700 rounded-lg hover:bg-slate-50 dark:hover:bg-navy-700">
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="text-sm font-semibold tabular text-navy-900 dark:text-white">GRN-KHI-26-0089</div>
-                          <div className="text-xs text-slate-500 dark:text-slate-400">29 Apr · Bilal Ahmed</div>
+                          <div className="text-sm font-semibold tabular text-navy-900 dark:text-white">GRN-CEN-26-0089</div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">29 Apr · Ben Alder</div>
                         </div>
                         <Badge variant="success">POSTED</Badge>
                       </div>

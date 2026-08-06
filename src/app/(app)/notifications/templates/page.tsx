@@ -13,15 +13,15 @@ import { toast } from "@/components/ui/toaster";
 type Template = { code: string; name: string; body: string; language: string; maxLength: number; isActive: boolean };
 
 const TEMPLATES: Template[] = [
-  { code: "ORDER_CONFIRMED",      name: "Order Confirmation",     body: "Dear {{name}}, your order {{orderNo}} of PKR {{amount}} has been confirmed. Thank you!", language: "en", maxLength: 160, isActive: true },
+  { code: "ORDER_CONFIRMED",      name: "Order Confirmation",     body: "Dear {{name}}, your order {{orderNo}} of ${{amount}} has been confirmed. Thank you!", language: "en", maxLength: 160, isActive: true },
   { code: "ORDER_DISPATCHED",     name: "Order Dispatched",       body: "Dear {{name}}, your order {{orderNo}} has been dispatched. Invoice: {{invoiceNo}}",     language: "en", maxLength: 160, isActive: true },
   { code: "ORDER_DELIVERED",      name: "Order Delivered",        body: "Your order {{orderNo}} has been delivered. Thank you for your business!",                language: "en", maxLength: 160, isActive: true },
-  { code: "INVOICE_ISSUED",       name: "Invoice Issued",         body: "Dear customer, invoice {{invoiceNo}} of PKR {{amount}} issued. Due: {{dueDate}}",       language: "en", maxLength: 160, isActive: true },
-  { code: "PAYMENT_DUE_TOMORROW", name: "Payment Due Tomorrow",   body: "Reminder: Invoice {{invoiceNo}} of PKR {{amount}} is due tomorrow.",                    language: "en", maxLength: 160, isActive: true },
-  { code: "PAYMENT_OVERDUE",      name: "Payment Overdue",        body: "Reminder: Invoice {{invoiceNo}} of PKR {{amount}} is overdue by {{days}} days.",        language: "en", maxLength: 160, isActive: true },
-  { code: "PAYMENT_RECEIVED",     name: "Payment Received",       body: "Thank you! Payment of PKR {{amount}} received against {{invoiceNo}}.",                  language: "en", maxLength: 160, isActive: true },
+  { code: "INVOICE_ISSUED",       name: "Invoice Issued",         body: "Dear customer, invoice {{invoiceNo}} of ${{amount}} issued. Due: {{dueDate}}",       language: "en", maxLength: 160, isActive: true },
+  { code: "PAYMENT_DUE_TOMORROW", name: "Payment Due Tomorrow",   body: "Reminder: Invoice {{invoiceNo}} of ${{amount}} is due tomorrow.",                    language: "en", maxLength: 160, isActive: true },
+  { code: "PAYMENT_OVERDUE",      name: "Payment Overdue",        body: "Reminder: Invoice {{invoiceNo}} of ${{amount}} is overdue by {{days}} days.",        language: "en", maxLength: 160, isActive: true },
+  { code: "PAYMENT_RECEIVED",     name: "Payment Received",       body: "Thank you! Payment of ${{amount}} received against {{invoiceNo}}.",                  language: "en", maxLength: 160, isActive: true },
   { code: "LOW_STOCK",            name: "Low Stock Alert",        body: "Alert: {{productName}} stock is below reorder level. Current: {{qty}}",                 language: "en", maxLength: 160, isActive: true },
-  { code: "PO_APPROVED",          name: "PO Approved (Supplier)", body: "Your PO {{poNo}} of PKR {{amount}} has been approved. Please proceed with delivery.",   language: "en", maxLength: 160, isActive: true },
+  { code: "PO_APPROVED",          name: "PO Approved (Supplier)", body: "Your PO {{poNo}} of ${{amount}} has been approved. Please proceed with delivery.",   language: "en", maxLength: 160, isActive: true },
 ];
 
 const Schema = z.object({
@@ -92,8 +92,8 @@ export default function TemplatesPage() {
           { name: "body", label: "Message body", type: "textarea", required: true, rows: 4, placeholder: "Dear {{name}}, …", hint: "Use {{variable}} for dynamic values. 153 chars = 1 SMS." },
           { name: "language", label: "Language", type: "select", required: true, options: [
             { value: "en", label: "English" },
-            { value: "ur", label: "Urdu" },
-            { value: "roman-ur", label: "Roman Urdu" },
+            { value: "ur", label: "French" },
+            { value: "roman-ur", label: "Spanish" },
           ] },
           { name: "isActive", label: "Active", type: "switch", hint: "Inactive templates won't be triggered by events", fullWidth: true },
         ]}
@@ -119,7 +119,7 @@ export default function TemplatesPage() {
       <SendSmsDialog
         open={test !== null}
         onOpenChange={(o) => !o && setTest(null)}
-        defaultPhone="03005566778"
+        defaultPhone="555 06778"
       />
     </>
   );

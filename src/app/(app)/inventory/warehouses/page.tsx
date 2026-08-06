@@ -99,9 +99,9 @@ export default function WarehousesPage() {
         title="Warehouse"
         schema={Schema}
         fields={[
-          { name: "code", label: "Warehouse code", type: "text", placeholder: "KHI-WH-01", required: true, disabledOnEdit: true, hint: "Uppercase, hyphens allowed" },
-          { name: "name", label: "Display name", type: "text", placeholder: "Karachi Main Warehouse", required: true },
-          { name: "city", label: "City / Address", type: "text", placeholder: "Karachi · Saddar", required: true },
+          { name: "code", label: "Warehouse code", type: "text", placeholder: "CEN-WH-01", required: true, disabledOnEdit: true, hint: "Uppercase, hyphens allowed" },
+          { name: "name", label: "Display name", type: "text", placeholder: "Central Main Warehouse", required: true },
+          { name: "city", label: "City / Address", type: "text", placeholder: "Central · Market Row", required: true },
           { name: "branchId", label: "Owning branch", type: "select", required: true, options: branchesAdmin.map((b) => ({ value: b.id, label: b.name })) },
           { name: "isActive", label: "Active", type: "switch", hint: "Inactive warehouses are hidden in transfer/order screens", fullWidth: true },
         ]}

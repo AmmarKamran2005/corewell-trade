@@ -145,7 +145,7 @@ export default function PurchaseSummaryPage() {
         <Card className="p-4">
           <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">WHT Withheld</div>
           <div className="text-2xl tabular font-bold text-navy-900 dark:text-white mt-1">{formatCompact(totalWht)}</div>
-          <Badge variant="muted" className="mt-2">Payable to FBR</Badge>
+          <Badge variant="muted" className="mt-2">Payable to tax authority</Badge>
         </Card>
       </div>
 

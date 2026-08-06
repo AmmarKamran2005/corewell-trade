@@ -75,9 +75,9 @@ export default function PreferencesPage() {
                 <div>
                   <Label className="mb-1.5 inline-block">Default branch on login</Label>
                   <SelectNative defaultValue="1">
-                    <option value="1">Karachi Head Office</option>
-                    <option value="2">Lahore Branch</option>
-                    <option value="3">Islamabad Branch</option>
+                    <option value="1">Central Head Office</option>
+                    <option value="2">Northgate Branch</option>
+                    <option value="3">Harbour Branch</option>
                   </SelectNative>
                 </div>
                 <div>
@@ -92,7 +92,7 @@ export default function PreferencesPage() {
                   <Label className="mb-1.5 inline-block">Number format</Label>
                   <SelectNative defaultValue="intl">
                     <option value="intl">International (1,000,000)</option>
-                    <option value="pk">Pakistani (10,00,000)</option>
+                    <option value="pk">Local (10,00,000)</option>
                   </SelectNative>
                 </div>
                 <div>
@@ -114,7 +114,7 @@ export default function PreferencesPage() {
               <div className="space-y-1">
                 <NotifRow icon={Bell}        label="In-app notifications" desc="Bell icon on top bar"          checked enabled={true}  onChange={() => {}} />
                 <NotifRow icon={Mail}        label="Email notifications"   desc="Sent to adnan@nortex.demo"     checked={emailNotifs} enabled onChange={setEmailNotifs} />
-                <NotifRow icon={MessageSquare} label="SMS notifications"   desc="Sent to 0300 5566778"        checked={smsNotifs}   enabled onChange={setSmsNotifs} />
+                <NotifRow icon={MessageSquare} label="SMS notifications"   desc="Sent to 555 06778"        checked={smsNotifs}   enabled onChange={setSmsNotifs} />
                 <NotifRow icon={Bell}        label="Browser push"          desc="Requires browser permission"  checked={pushNotifs}  enabled onChange={setPushNotifs} />
               </div>
             </CardBody>

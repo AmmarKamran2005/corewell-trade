@@ -1,53 +1,61 @@
 /**
  * Corewell Trade — Number & Money Formatting Utilities
  * --------------------------------------------------------------------------
- * All money in PKR (single currency for v1). Uses en-PK locale conventions.
+ * Money is held as integer minor units (cents) throughout and converted to
+ * major units at the point of display, which is why every amount passes
+ * through these helpers rather than being formatted inline. Working in
+ * integers keeps line totals, tax and tenders exactly consistent — the
+ * rounding happens once, here.
  */
 
-const pkrFormatter = new Intl.NumberFormat("en-PK", {
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-});
+const MINOR_UNITS_PER_MAJOR = 100;
+const CURRENCY_SYMBOL = "$";
 
-const pkrFormatterDecimal = new Intl.NumberFormat("en-PK", {
+const moneyFormatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
 
-const numberFormatter = new Intl.NumberFormat("en-PK");
+const moneyFormatterWhole = new Intl.NumberFormat("en-US", {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
 
-/** Format money with PKR symbol — `PKR 8,42,500` */
+const numberFormatter = new Intl.NumberFormat("en-US");
+
+/** Format money — `$1,228.81`. Pass `decimals: 0` for rounded display. */
 export function formatMoney(
   amount: number,
   options: { withSymbol?: boolean; decimals?: 0 | 2 } = {}
 ) {
-  const { withSymbol = true, decimals = 0 } = options;
-  const formatter = decimals === 2 ? pkrFormatterDecimal : pkrFormatter;
-  const sign = amount < 0 ? "-" : "";
-  const value = formatter.format(Math.abs(amount));
-  return withSymbol ? `${sign}PKR ${value}` : `${sign}${value}`;
+  const { withSymbol = true, decimals = 2 } = options;
+  const major = amount / MINOR_UNITS_PER_MAJOR;
+  const formatter = decimals === 0 ? moneyFormatterWhole : moneyFormatter;
+  const sign = major < 0 ? "-" : "";
+  const value = formatter.format(Math.abs(major));
+  return withSymbol ? `${sign}${CURRENCY_SYMBOL}${value}` : `${sign}${value}`;
 }
 
-/** Format compact (lakhs/crores) — `1.84 Cr`, `8.42 L`, `42K` */
+/** Format compact — `$1.84M`, `$218.0K`, `$842` */
 export function formatCompact(amount: number, withSymbol = true): string {
-  const abs = Math.abs(amount);
+  const major = Math.abs(amount) / MINOR_UNITS_PER_MAJOR;
   const sign = amount < 0 ? "-" : "";
   let formatted: string;
 
-  if (abs >= 10_000_000) {
-    formatted = `${(abs / 10_000_000).toFixed(2)} Cr`;
-  } else if (abs >= 100_000) {
-    formatted = `${(abs / 100_000).toFixed(2)} L`;
-  } else if (abs >= 1_000) {
-    formatted = `${(abs / 1_000).toFixed(1)}K`;
+  if (major >= 1_000_000_000) {
+    formatted = `${(major / 1_000_000_000).toFixed(2)}B`;
+  } else if (major >= 1_000_000) {
+    formatted = `${(major / 1_000_000).toFixed(2)}M`;
+  } else if (major >= 1_000) {
+    formatted = `${(major / 1_000).toFixed(1)}K`;
   } else {
-    formatted = `${abs}`;
+    formatted = major.toFixed(0);
   }
 
-  return withSymbol ? `${sign}PKR ${formatted}` : `${sign}${formatted}`;
+  return withSymbol ? `${sign}${CURRENCY_SYMBOL}${formatted}` : `${sign}${formatted}`;
 }
 
-/** Plain number with PK locale grouping — `1,247` */
+/** Plain number with thousands grouping — `1,247` */
 export function formatNumber(n: number) {
   return numberFormatter.format(n);
 }
@@ -57,7 +65,7 @@ export function formatPercent(n: number, decimals = 1) {
   return `${n.toFixed(decimals)}%`;
 }
 
-/** Format date as `DD-MMM-YYYY` (Pakistani convention) */
+/** Format date as `DD-MMM-YYYY` */
 export function formatDate(date: Date | string) {
   const d = typeof date === "string" ? new Date(date) : date;
   return d.toLocaleDateString("en-GB", {
@@ -79,7 +87,7 @@ export function formatRelative(date: Date | string) {
   return formatDate(d);
 }
 
-/** Initials from a full name — `Adnan Sheikh` → `UM` */
+/** Initials from a full name — `Alex Hartley` → `AH` */
 export function initials(name: string, max = 2) {
   return name
     .split(" ")

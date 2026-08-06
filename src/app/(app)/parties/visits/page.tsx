@@ -12,13 +12,13 @@ import { FilterBar } from "@/components/ui/filter-bar";
 import { initials, formatDate } from "@/lib/format";
 
 const VISITS = [
-  { id: 1, partyId: 1,  partyName: "Hafeez Center Shop #28",   salesPerson: "Sara Khan",  date: "2026-04-30", time: "11:30 AM", outcome: "Order Placed",      variant: "success" as const, notes: "Discussed bulk discount on PowerX line", lat: "31.5204° N", lng: "74.3587° E" },
-  { id: 2, partyId: 2,  partyName: "Mobile Zone Lahore",       salesPerson: "Sara Khan",  date: "2026-04-30", time: "10:00 AM", outcome: "No Order",          variant: "muted" as const,   notes: "Customer wants to wait for new pricing", lat: "31.5497° N", lng: "74.3436° E" },
-  { id: 3, partyId: 5,  partyName: "Cellular World KHI",       salesPerson: "Hassan Raza",date: "2026-04-29", time: "03:45 PM", outcome: "Followup",          variant: "info" as const,    notes: "Need to send updated catalog by Mon",    lat: "24.8607° N", lng: "67.0011° E" },
-  { id: 4, partyId: 3,  partyName: "Saddar Mobile Plaza",      salesPerson: "Hassan Raza",date: "2026-04-29", time: "12:15 PM", outcome: "Payment Collected", variant: "success" as const, notes: "Collected PKR 32,750 against INV-141",    lat: "24.8567° N", lng: "67.0152° E" },
-  { id: 5, partyId: 6,  partyName: "Faisal Mobile Mart",       salesPerson: "Sara Khan",  date: "2026-04-29", time: "10:30 AM", outcome: "Order Placed",      variant: "success" as const, notes: "Reorder of Titan T9, 50 units",          lat: "31.5497° N", lng: "74.3436° E" },
-  { id: 6, partyId: 12, partyName: "Margalla Distributors",    salesPerson: "Bilal Ahmed",date: "2026-04-28", time: "02:00 PM", outcome: "Order Placed",      variant: "success" as const, notes: "Big order for VOLT chargers + Speakers",  lat: "33.7294° N", lng: "73.0931° E" },
-  { id: 7, partyId: 11, partyName: "Pak Mobile Centre",        salesPerson: "Bilal Ahmed",date: "2026-04-28", time: "11:00 AM", outcome: "Followup",          variant: "info" as const,    notes: "Will decide after Eid",                    lat: "34.0151° N", lng: "71.5249° E" },
+  { id: 1, partyId: 1,  partyName: "Riverside Plaza Shop #28",   salesPerson: "Sara Doyle",  date: "2026-04-30", time: "11:30 AM", outcome: "Order Placed",      variant: "success" as const, notes: "Discussed bulk discount on PowerX line", lat: "31.5204° N", lng: "74.3587° E" },
+  { id: 2, partyId: 2,  partyName: "Mobile Zone Northgate",       salesPerson: "Sara Doyle",  date: "2026-04-30", time: "10:00 AM", outcome: "No Order",          variant: "muted" as const,   notes: "Customer wants to wait for new pricing", lat: "31.5497° N", lng: "74.3436° E" },
+  { id: 3, partyId: 5,  partyName: "Cellular World Central",       salesPerson: "Hugo Ramos",date: "2026-04-29", time: "03:45 PM", outcome: "Followup",          variant: "info" as const,    notes: "Need to send updated catalog by Mon",    lat: "24.8607° N", lng: "67.0011° E" },
+  { id: 4, partyId: 3,  partyName: "Market Row Mobile Plaza",      salesPerson: "Hugo Ramos",date: "2026-04-29", time: "12:15 PM", outcome: "Payment Collected", variant: "success" as const, notes: "Collected USD 32,750 against INV-141",    lat: "24.8567° N", lng: "67.0152° E" },
+  { id: 5, partyId: 6,  partyName: "Fairview Mobile Mart",       salesPerson: "Sara Doyle",  date: "2026-04-29", time: "10:30 AM", outcome: "Order Placed",      variant: "success" as const, notes: "Reorder of Titan T9, 50 units",          lat: "31.5497° N", lng: "74.3436° E" },
+  { id: 6, partyId: 12, partyName: "Meridian Distributors",    salesPerson: "Ben Alder",date: "2026-04-28", time: "02:00 PM", outcome: "Order Placed",      variant: "success" as const, notes: "Big order for VOLT chargers + Speakers",  lat: "33.7294° N", lng: "73.0931° E" },
+  { id: 7, partyId: 11, partyName: "Pak Mobile Centre",        salesPerson: "Ben Alder",date: "2026-04-28", time: "11:00 AM", outcome: "Followup",          variant: "info" as const,    notes: "Will decide after Eid",                    lat: "34.0151° N", lng: "71.5249° E" },
 ];
 
 export default function VisitsPage() {
@@ -91,7 +91,7 @@ export default function VisitsPage() {
             Cities Covered
           </div>
           <div className="text-2xl tabular font-bold text-navy-900 dark:text-white mt-1">4</div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">KHI · LHR · ISB · PEW</div>
+          <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">CEN · NGT · HBR · PEW</div>
         </Card>
         <Card className="p-4">
           <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">
@@ -112,7 +112,7 @@ export default function VisitsPage() {
               <MapPin className="size-12 text-brand mx-auto mb-3" />
               <h3 className="text-base font-semibold text-navy-900 dark:text-white">Map view</h3>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                Live visit locations across Pakistan — pin clusters per city
+                Live visit locations across the region — pin clusters per city
               </p>
               <div className="mt-3 text-xs text-slate-400">Map integration coming in Phase I</div>
             </div>

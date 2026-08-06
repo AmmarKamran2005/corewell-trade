@@ -21,10 +21,10 @@ export type Terminal = {
 };
 
 export const terminals: Terminal[] = [
-  { id: 1, code: "KHI-T1", name: "Counter 1", branch: "Karachi",   branchCode: "KHI", isActive: true },
-  { id: 2, code: "KHI-T2", name: "Counter 2", branch: "Karachi",   branchCode: "KHI", isActive: true },
-  { id: 3, code: "LHR-T1", name: "Counter 1", branch: "Lahore",    branchCode: "LHR", isActive: true },
-  { id: 4, code: "ISB-T1", name: "Counter 1", branch: "Islamabad", branchCode: "ISB", isActive: false },
+  { id: 1, code: "CEN-T1", name: "Counter 1", branch: "Central",   branchCode: "CEN", isActive: true },
+  { id: 2, code: "CEN-T2", name: "Counter 2", branch: "Central",   branchCode: "CEN", isActive: true },
+  { id: 3, code: "NGT-T1", name: "Counter 1", branch: "Northgate",    branchCode: "NGT", isActive: true },
+  { id: 4, code: "HBR-T1", name: "Counter 1", branch: "Harbour", branchCode: "HBR", isActive: false },
 ];
 
 /* ─────────────────────────── Tenders ───────────────────────────── */
@@ -44,12 +44,12 @@ export type TenderMeta = {
 export const tenderTypes: TenderMeta[] = [
   { type: "CASH",      label: "Cash",      givesChange: true,  needsReference: false, hint: "Notes and coins in the drawer" },
   { type: "CARD",      label: "Card",      givesChange: false, needsReference: true,  hint: "Debit or credit, via the terminal" },
-  { type: "EASYPAISA", label: "Easypaisa", givesChange: false, needsReference: true,  hint: "Mobile wallet transfer" },
-  { type: "JAZZCASH",  label: "JazzCash",  givesChange: false, needsReference: true,  hint: "Mobile wallet transfer" },
+  { type: "EASYPAISA", label: "WalletPay", givesChange: false, needsReference: true,  hint: "Mobile wallet transfer" },
+  { type: "JAZZCASH",  label: "PayLink",  givesChange: false, needsReference: true,  hint: "Mobile wallet transfer" },
 ];
 
-/** Notes a Pakistani drawer actually holds — used for the quick-cash buttons. */
-export const cashDenominations = [50, 100, 500, 1000, 5000];
+/** Notes a Local drawer actually holds — used for the quick-cash buttons. */
+export const cashDenominations = [100, 500, 1000, 2000, 5000, 10000];
 
 /* ─────────────────────── Register session ──────────────────────── */
 
@@ -64,8 +64,8 @@ export type RegisterSession = {
 
 export const currentSession: RegisterSession = {
   id: 1,
-  terminalCode: "KHI-T1",
-  cashier: "Sara Khan",
+  terminalCode: "CEN-T1",
+  cashier: "Sara Doyle",
   openedAt: "2026-05-02T09:04:00",
   openingFloat: 10000,
   status: "OPEN",
@@ -103,7 +103,7 @@ export type ParkedSale = {
 
 export const parkedSales: ParkedSale[] = [
   { id: 1, reference: "PARK-0031", customerName: "Walk-in",              parkedAt: "11:42", itemCount: 3, total: 4_260,  note: "Fetching cash from the car",     lineProductIds: [1, 7, 12] },
-  { id: 2, reference: "PARK-0030", customerName: "Saddar Mobile Plaza",  parkedAt: "11:18", itemCount: 6, total: 18_940, note: "Waiting on owner's approval",    lineProductIds: [2, 3, 8, 9, 14, 15] },
+  { id: 2, reference: "PARK-0030", customerName: "Market Row Mobile Plaza",  parkedAt: "11:18", itemCount: 6, total: 18_940, note: "Waiting on owner's approval",    lineProductIds: [2, 3, 8, 9, 14, 15] },
   { id: 3, reference: "PARK-0029", customerName: "Walk-in",              parkedAt: "10:55", itemCount: 1, total: 1_280,  note: "Checking a different colour",    lineProductIds: [4] },
 ];
 
@@ -138,18 +138,18 @@ const line = (productId: number, qty: number, alreadyReturned = 0): ReceiptLine 
 
 export const receipts: Receipt[] = [
   {
-    id: 1, receiptNo: "KHI-T1-26-004128", soldAt: "2026-05-02T10:12:00", cashier: "Sara Khan",
-    terminalCode: "KHI-T1", customerName: "Walk-in", tender: "CASH", total: 4_940,
+    id: 1, receiptNo: "CEN-T1-26-004128", soldAt: "2026-05-02T10:12:00", cashier: "Sara Doyle",
+    terminalCode: "CEN-T1", customerName: "Walk-in", tender: "CASH", total: 4_940,
     lines: [line(1, 2), line(11, 1), line(19, 3)],
   },
   {
-    id: 2, receiptNo: "KHI-T1-26-004127", soldAt: "2026-05-02T09:58:00", cashier: "Sara Khan",
-    terminalCode: "KHI-T1", customerName: "Mobile Zone Lahore", tender: "CARD", total: 12_760,
+    id: 2, receiptNo: "CEN-T1-26-004127", soldAt: "2026-05-02T09:58:00", cashier: "Sara Doyle",
+    terminalCode: "CEN-T1", customerName: "Mobile Zone Northgate", tender: "CARD", total: 12_760,
     lines: [line(3, 2), line(8, 1, 1), line(15, 4)],
   },
   {
-    id: 3, receiptNo: "KHI-T2-26-004119", soldAt: "2026-05-01T17:31:00", cashier: "Zara Malik",
-    terminalCode: "KHI-T2", customerName: "Walk-in", tender: "EASYPAISA", total: 2_180,
+    id: 3, receiptNo: "CEN-T2-26-004119", soldAt: "2026-05-01T17:31:00", cashier: "Zara Malik",
+    terminalCode: "CEN-T2", customerName: "Walk-in", tender: "EASYPAISA", total: 2_180,
     lines: [line(7, 1), line(22, 2)],
   },
 ];

@@ -32,12 +32,12 @@ const STATUS_META: Record<Transfer["status"], { label: string; color: string; ic
 };
 
 const TRANSFERS: Transfer[] = [
-  { id: 1, transferNo: "TRF-KHI-26-0014", date: "2026-04-30", fromWh: "Karachi Main",       toWh: "Lahore Distribution", itemCount: 8, totalUnits: 240, status: "IN_TRANSIT",       initiatedBy: "Hassan Raza" },
-  { id: 2, transferNo: "TRF-KHI-26-0013", date: "2026-04-29", fromWh: "Karachi Main",       toWh: "Islamabad Hub",       itemCount: 5, totalUnits: 150, status: "RECEIVED",         initiatedBy: "Bilal Ahmed" },
-  { id: 3, transferNo: "TRF-KHI-26-0012", date: "2026-04-29", fromWh: "Karachi Main",       toWh: "Lahore Distribution", itemCount: 4, totalUnits: 100, status: "RECEIVED",         initiatedBy: "Hassan Raza" },
-  { id: 4, transferNo: "TRF-LHR-26-0008", date: "2026-04-28", fromWh: "Lahore Distribution", toWh: "Islamabad Hub",       itemCount: 3, totalUnits: 60,  status: "APPROVED",         initiatedBy: "Sara Khan" },
-  { id: 5, transferNo: "TRF-KHI-26-0011", date: "2026-04-25", fromWh: "Karachi Main",       toWh: "Lahore Distribution", itemCount: 6, totalUnits: 180, status: "PENDING_APPROVAL", initiatedBy: "Hassan Raza" },
-  { id: 6, transferNo: "TRF-KHI-26-0010", date: "2026-04-24", fromWh: "Karachi Main",       toWh: "Islamabad Hub",       itemCount: 2, totalUnits: 50,  status: "REJECTED",         initiatedBy: "Hassan Raza" },
+  { id: 1, transferNo: "TRF-CEN-26-0014", date: "2026-04-30", fromWh: "Central Main",       toWh: "Northgate Distribution", itemCount: 8, totalUnits: 240, status: "IN_TRANSIT",       initiatedBy: "Hugo Ramos" },
+  { id: 2, transferNo: "TRF-CEN-26-0013", date: "2026-04-29", fromWh: "Central Main",       toWh: "Harbour Hub",       itemCount: 5, totalUnits: 150, status: "RECEIVED",         initiatedBy: "Ben Alder" },
+  { id: 3, transferNo: "TRF-CEN-26-0012", date: "2026-04-29", fromWh: "Central Main",       toWh: "Northgate Distribution", itemCount: 4, totalUnits: 100, status: "RECEIVED",         initiatedBy: "Hugo Ramos" },
+  { id: 4, transferNo: "TRF-NGT-26-0008", date: "2026-04-28", fromWh: "Northgate Distribution", toWh: "Harbour Hub",       itemCount: 3, totalUnits: 60,  status: "APPROVED",         initiatedBy: "Sara Doyle" },
+  { id: 5, transferNo: "TRF-CEN-26-0011", date: "2026-04-25", fromWh: "Central Main",       toWh: "Northgate Distribution", itemCount: 6, totalUnits: 180, status: "PENDING_APPROVAL", initiatedBy: "Hugo Ramos" },
+  { id: 6, transferNo: "TRF-CEN-26-0010", date: "2026-04-24", fromWh: "Central Main",       toWh: "Harbour Hub",       itemCount: 2, totalUnits: 50,  status: "REJECTED",         initiatedBy: "Hugo Ramos" },
 ];
 
 export default function TransfersPage() {

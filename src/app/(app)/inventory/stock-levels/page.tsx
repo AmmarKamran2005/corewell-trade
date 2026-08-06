@@ -33,7 +33,7 @@ export default function StockLevelsPage() {
 
   const rows: StockRow[] = products.map((p) => {
     const brand = brands.find((b) => b.id === p.brandId)?.name ?? "—";
-    const splits = warehouses.filter((w) => w.code !== "KHI-WH-02").map((w, i) => ({
+    const splits = warehouses.filter((w) => w.code !== "CEN-WH-02").map((w, i) => ({
       id: w.id,
       code: w.code,
       qty: Math.floor(p.totalStock * [0.5, 0.3, 0.2][i % 3]),
@@ -80,7 +80,7 @@ export default function StockLevelsPage() {
         </div>
       ),
     },
-    ...warehouses.filter((w) => w.code !== "KHI-WH-02").map<Column<StockRow>>((wh) => ({
+    ...warehouses.filter((w) => w.code !== "CEN-WH-02").map<Column<StockRow>>((wh) => ({
       key: `wh-${wh.code}`,
       header: wh.code,
       align: "right" as const,

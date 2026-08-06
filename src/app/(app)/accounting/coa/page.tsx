@@ -121,7 +121,7 @@ export default function COAPage() {
         schema={Schema}
         fields={[
           { name: "code", label: "Account code", type: "text", placeholder: "1101", required: true, disabledOnEdit: true, hint: "Numeric, hierarchical (e.g. 1101 under 1100)" },
-          { name: "name", label: "Account name", type: "text", placeholder: "Cash on Hand — Karachi", required: true },
+          { name: "name", label: "Account name", type: "text", placeholder: "Cash on Hand — Central", required: true },
           { name: "type", label: "Type", type: "select", required: true, options: [
             { value: "ASSET", label: "Asset" },
             { value: "LIABILITY", label: "Liability" },
@@ -132,7 +132,7 @@ export default function COAPage() {
           { name: "subtype", label: "Subtype", type: "text", placeholder: "CASH, BANK, AR, AP, COGS, OPEX…", required: true, hint: "Free-text label for reporting" },
           { name: "parentId", label: "Parent group", type: "select", options: [{ value: "", label: "— Top level —" }, ...accounts.filter((a) => a.isGroup).map((a) => ({ value: a.id, label: `${a.code} ${a.name}` }))] },
           { name: "isGroup", label: "Group account (no postings)", type: "switch", hint: "Group accounts can have children but cannot be posted to directly", fullWidth: true },
-          { name: "openingBalance", label: "Opening balance (PKR)", type: "number", step: 0.01, fullWidth: true },
+          { name: "openingBalance", label: "Opening balance (USD)", type: "number", step: 0.01, fullWidth: true },
         ]}
         defaultValues={{
           code: dialog?.acct?.code ?? "",

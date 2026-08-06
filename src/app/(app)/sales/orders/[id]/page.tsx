@@ -33,13 +33,13 @@ const MOCK_ITEMS = [
 ];
 
 const ACTIVITY = [
-  { id: 1, user: "Sara Khan",   action: "created order",                   time: "30 Apr · 9:15 AM",  variant: "info" as const,    icon: FileText },
+  { id: 1, user: "Sara Doyle",   action: "created order",                   time: "30 Apr · 9:15 AM",  variant: "info" as const,    icon: FileText },
   { id: 2, user: "System",      action: "ran credit check — PASS",          time: "30 Apr · 9:15 AM",  variant: "success" as const, icon: CheckCircle2 },
-  { id: 3, user: "Sara Khan",   action: "submitted order for confirmation", time: "30 Apr · 9:16 AM",  variant: "info" as const,    icon: ArrowRight },
-  { id: 4, user: "Bilal Ahmed", action: "confirmed order",                   time: "30 Apr · 10:42 AM", variant: "info" as const,    icon: CheckCircle2 },
-  { id: 5, user: "Hassan Raza", action: "packed and ready for dispatch",     time: "30 Apr · 11:30 AM", variant: "info" as const,    icon: Package },
-  { id: 6, user: "Sara Khan",   action: "dispatched order to customer",      time: "30 Apr · 11:42 AM", variant: "success" as const, icon: Truck },
-  { id: 7, user: "System",      action: "auto-generated invoice INV-KHI-26-0142", time: "30 Apr · 11:42 AM", variant: "success" as const, icon: FileText },
+  { id: 3, user: "Sara Doyle",   action: "submitted order for confirmation", time: "30 Apr · 9:16 AM",  variant: "info" as const,    icon: ArrowRight },
+  { id: 4, user: "Ben Alder", action: "confirmed order",                   time: "30 Apr · 10:42 AM", variant: "info" as const,    icon: CheckCircle2 },
+  { id: 5, user: "Hugo Ramos", action: "packed and ready for dispatch",     time: "30 Apr · 11:30 AM", variant: "info" as const,    icon: Package },
+  { id: 6, user: "Sara Doyle",   action: "dispatched order to customer",      time: "30 Apr · 11:42 AM", variant: "success" as const, icon: Truck },
+  { id: 7, user: "System",      action: "auto-generated invoice INV-CEN-26-0142", time: "30 Apr · 11:42 AM", variant: "success" as const, icon: FileText },
 ];
 
 export default function OrderDetailPage() {
@@ -95,7 +95,7 @@ export default function OrderDetailPage() {
                 Override Credit Hold
               </Button>
             ) : order.status === "PACKED" ? (
-              <Button variant="accent" size="md" className="gap-1.5" onClick={() => toast.success("Order dispatched", { description: `Invoice INV-KHI-26-0142 generated. SMS queued for customer.` })}>
+              <Button variant="accent" size="md" className="gap-1.5" onClick={() => toast.success("Order dispatched", { description: `Invoice INV-CEN-26-0142 generated. SMS queued for customer.` })}>
                 <Truck />
                 Dispatch
               </Button>
@@ -279,7 +279,7 @@ export default function OrderDetailPage() {
                 <TabsContent value="documents">
                   <div className="space-y-2">
                     {[
-                      { name: "Invoice INV-KHI-26-0142.pdf", size: "84 KB", date: "30 Apr 2026" },
+                      { name: "Invoice INV-CEN-26-0142.pdf", size: "84 KB", date: "30 Apr 2026" },
                       { name: "Picking Slip.pdf",             size: "32 KB", date: "30 Apr 2026" },
                       { name: "Delivery Challan.pdf",         size: "28 KB", date: "30 Apr 2026" },
                     ].map((d, i) => (
@@ -318,11 +318,11 @@ export default function OrderDetailPage() {
               <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
                 <div className="inline-flex items-center gap-1.5">
                   <Phone className="size-3 text-slate-400" />
-                  0300 4567890
+                  555 07890
                 </div>
                 <div className="inline-flex items-center gap-1.5">
                   <MapPin className="size-3 text-slate-400" />
-                  {order.branch}, Pakistan
+                  {order.branch}
                 </div>
               </div>
             </CardBody>
@@ -400,13 +400,13 @@ export default function OrderDetailPage() {
       <SendSmsDialog
         open={sendSms}
         onOpenChange={setSendSms}
-        defaultPhone="03004567890"
+        defaultPhone="555 07890"
         defaultTemplate="ORDER_DISPATCHED"
         contextVars={{
           name: order.customerName,
           orderNo: order.orderNo,
           invoiceNo: order.orderNo.replace("ORD", "INV"),
-          amount: formatMoney(order.total).replace("PKR ", ""),
+          amount: formatMoney(order.total).replace("USD ", ""),
         }}
       />
     </>

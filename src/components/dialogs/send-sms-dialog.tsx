@@ -17,16 +17,16 @@ import { toast } from "@/components/ui/toaster";
 
 const TEMPLATES: Record<string, string> = {
   ORDER_DISPATCHED:    "Dear {{name}}, your order {{orderNo}} has been dispatched. Invoice: {{invoiceNo}}. Thank you for your business!",
-  PAYMENT_REMINDER:    "Dear {{name}}, this is a friendly reminder that invoice {{invoiceNo}} of PKR {{amount}} is due. Please arrange payment.",
-  PAYMENT_OVERDUE:     "Reminder: Invoice {{invoiceNo}} of PKR {{amount}} is overdue. Please pay urgently to avoid service disruption.",
-  PAYMENT_RECEIVED:    "Thank you! Payment of PKR {{amount}} received against {{invoiceNo}}. Current balance: {{balance}}.",
+  PAYMENT_REMINDER:    "Dear {{name}}, this is a friendly reminder that invoice {{invoiceNo}} of USD {{amount}} is due. Please arrange payment.",
+  PAYMENT_OVERDUE:     "Reminder: Invoice {{invoiceNo}} of USD {{amount}} is overdue. Please pay urgently to avoid service disruption.",
+  PAYMENT_RECEIVED:    "Thank you! Payment of USD {{amount}} received against {{invoiceNo}}. Current balance: {{balance}}.",
   CUSTOM:              "",
 };
 
 const Schema = z.object({
   toNumber: z.string()
-    .min(11, "Pakistani phone number must be 11 digits (e.g. 03XXXXXXXXX)")
-    .regex(/^(03\d{9}|\+923\d{9})$/, "Invalid Pakistan mobile format"),
+    .min(11, "Phone number must be 10 digits (e.g. 5550101234)")
+    .regex(/^(03\d{9}|\+923\d{9})$/, "Invalid mobile number format"),
   templateCode: z.string().min(1, "Template required"),
   body: z.string().min(1, "Message required").max(459, "Message too long (max 3 SMS = 459 chars)"),
 });
@@ -65,7 +65,7 @@ export function SendSmsDialog({
 
   function onSubmit(data: Form) {
     toast.success("SMS queued for delivery", {
-      description: `Will be sent to ${data.toNumber} via Jazz BizSMS · Cost: PKR ${cost}`,
+      description: `Will be sent to ${data.toNumber} via Nexa SMS · Cost: USD ${cost}`,
     });
     onOpenChange(false);
     form.reset();
@@ -93,7 +93,7 @@ export function SendSmsDialog({
                   <FormItem>
                     <FormLabel required>Phone Number</FormLabel>
                     <FormControl><Input placeholder="03XXXXXXXXX" {...field} /></FormControl>
-                    <FormDescription>Pakistani mobile format only</FormDescription>
+                    <FormDescription>Local mobile format only</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )} />
@@ -120,7 +120,7 @@ export function SendSmsDialog({
                     <div className="flex items-center justify-between text-xs">
                       <FormMessage />
                       <span className="text-slate-500 dark:text-slate-400 tabular ml-auto">
-                        {charCount} chars · {segmentCount} SMS · PKR {cost}
+                        {charCount} chars · {segmentCount} SMS · USD {cost}
                       </span>
                     </div>
                   </FormItem>

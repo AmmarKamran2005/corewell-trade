@@ -56,13 +56,13 @@ export default function ProfilePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Full Name"><Input defaultValue={currentUser.fullName} /></Field>
                 <Field label="Email"><Input type="email" defaultValue={currentUser.email} disabled /></Field>
-                <Field label="Phone"><Input defaultValue="0300 5566778" /></Field>
+                <Field label="Phone"><Input defaultValue="555 06778" /></Field>
                 <Field label="Employee Code"><Input defaultValue="EMP-001" disabled /></Field>
                 <Field label="Default Branch">
                   <select className="input bg-white dark:bg-navy-800 dark:border-navy-700 dark:text-white">
-                    <option>Karachi Head Office</option>
-                    <option>Lahore Branch</option>
-                    <option>Islamabad Branch</option>
+                    <option>Central Head Office</option>
+                    <option>Northgate Branch</option>
+                    <option>Harbour Branch</option>
                   </select>
                 </Field>
                 <Field label="Role"><Input defaultValue={currentUser.role} disabled /></Field>

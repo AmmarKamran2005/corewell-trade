@@ -138,7 +138,7 @@ export default function FulfilOrderPage() {
           <div className="px-4 py-3 border-b border-slate-200 dark:border-navy-700 flex items-center gap-3">
             <h2 className="text-sm font-bold text-navy-900 dark:text-white">Pick list</h2>
             <span className="text-2xs text-slate-500 dark:text-slate-400">
-              {warehouses.find((w) => w.code === "KHI-WH-01")?.name ?? "Main warehouse"}
+              {warehouses.find((w) => w.code === "CEN-WH-01")?.name ?? "Main warehouse"}
             </span>
           </div>
 

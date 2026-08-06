@@ -161,8 +161,8 @@ export default function NewPurchaseInvoicePage() {
                         <option value="CREDIT">Credit (NET 30)</option>
                         <option value="CASH">Cash</option>
                         <option value="BANK">Bank Transfer</option>
-                        <option value="EASYPAISA">Easypaisa</option>
-                        <option value="JAZZCASH">JazzCash</option>
+                        <option value="EASYPAISA">WalletPay</option>
+                        <option value="JAZZCASH">PayLink</option>
                       </SelectNative>
                     </FormControl><FormMessage /></FormItem>
                   )} />

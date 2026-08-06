@@ -188,7 +188,7 @@ export default function NewVoucherPage() {
                   )}
 
                   <FormField control={form.control} name="amount" render={({ field }) => (
-                    <FormItem><FormLabel required>Amount (PKR)</FormLabel><FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl><FormMessage /></FormItem>
+                    <FormItem><FormLabel required>Amount (USD)</FormLabel><FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="paymentMethod" render={({ field }) => (
                     <FormItem><FormLabel required>Method</FormLabel><FormControl>
@@ -201,7 +201,7 @@ export default function NewVoucherPage() {
                   {(method === "BANK" || method === "CHEQUE") && (
                     <>
                       <FormField control={form.control} name="paymentProvider" render={({ field }) => (
-                        <FormItem><FormLabel>Bank name</FormLabel><FormControl><Input placeholder="HBL / Meezan / UBL" {...field} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Bank name</FormLabel><FormControl><Input placeholder="Anchor / Meridian / Vantage" {...field} /></FormControl><FormMessage /></FormItem>
                       )} />
                       <FormField control={form.control} name="reference" render={({ field }) => (
                         <FormItem><FormLabel>{method === "CHEQUE" ? "Cheque #" : "Txn reference"}</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>

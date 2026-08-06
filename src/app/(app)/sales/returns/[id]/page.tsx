@@ -17,7 +17,7 @@ import { toast } from "@/components/ui/toaster";
 
 const SAMPLE_RETURN_LINES = [
   { id: 1, sku: "NX-TIT-T9-BLK",  name: "Nortex Titan T9 Wireless Earbuds — Black", originalQty: 50, returnedQty: 4, unitPrice: 980,  condition: "DAMAGED",  restockTo: null },
-  { id: 2, sku: "NX-VR-TC-1.5M",  name: "Nortex VR Type-C Data Cable 1.5m",         originalQty: 100,returnedQty: 6, unitPrice: 195,  condition: "RESALABLE",restockTo: "KHI-WH-01" },
+  { id: 2, sku: "NX-VR-TC-1.5M",  name: "Nortex VR Type-C Data Cable 1.5m",         originalQty: 100,returnedQty: 6, unitPrice: 195,  condition: "RESALABLE",restockTo: "CEN-WH-01" },
 ];
 
 export default function SalesReturnDetailPage() {

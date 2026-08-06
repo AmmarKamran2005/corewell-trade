@@ -15,16 +15,16 @@ import { initials } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const ACTIONS = [
-  { id: 1, user: "Sara Khan",     action: "DISPATCHED", entity: "Order ORD-KHI-26-0142",     time: "2 min ago",    ip: "182.181.45.22", branch: "Karachi",    severity: "info" as const },
-  { id: 2, user: "System",        action: "AUTO-POST",  entity: "Journal Entry JE-26-1042",  time: "2 min ago",    ip: "internal",      branch: "Karachi",    severity: "muted" as const },
-  { id: 3, user: "Hassan Raza",   action: "OVERRIDDEN", entity: "Credit Hold ORD-LHR-26-0089", time: "15 min ago", ip: "182.181.45.30", branch: "Lahore",     severity: "warning" as const },
-  { id: 4, user: "Bilal Ahmed",   action: "POSTED",     entity: "GRN-KHI-26-0089",            time: "1 hour ago",  ip: "182.181.45.45", branch: "Karachi",    severity: "info" as const },
-  { id: 5, user: "Hassan Raza",   action: "CREATED",    entity: "Voucher VCH-KHI-26-0089",    time: "2 hours ago", ip: "182.181.45.30", branch: "Karachi",    severity: "info" as const },
-  { id: 6, user: "Adnan Sheikh",    action: "UPDATED",    entity: "Party NX-C-0008 (credit limit)", time: "3 hours ago", ip: "182.181.45.10", branch: "Karachi", severity: "warning" as const },
-  { id: 7, user: "Adnan Sheikh",    action: "CREATED",    entity: "Customer NX-C-0024",         time: "3 hours ago", ip: "182.181.45.10", branch: "Karachi",    severity: "info" as const },
-  { id: 8, user: "Sara Khan",     action: "LOGIN",      entity: "User session",                time: "5 hours ago", ip: "182.181.45.22", branch: "Lahore",     severity: "muted" as const },
-  { id: 9, user: "Asad Ali",      action: "LOGIN_FAIL", entity: "Failed authentication",       time: "Yesterday",   ip: "39.40.123.55",  branch: "—",           severity: "danger" as const },
-  { id: 10, user: "Adnan Sheikh",   action: "DELETED",    entity: "Product NX-OLD-005",          time: "Yesterday",   ip: "182.181.45.10", branch: "Karachi",    severity: "danger" as const },
+  { id: 1, user: "Sara Doyle",     action: "DISPATCHED", entity: "Order ORD-CEN-26-0142",     time: "2 min ago",    ip: "182.181.45.22", branch: "Central",    severity: "info" as const },
+  { id: 2, user: "System",        action: "AUTO-POST",  entity: "Journal Entry JE-26-1042",  time: "2 min ago",    ip: "internal",      branch: "Central",    severity: "muted" as const },
+  { id: 3, user: "Hugo Ramos",   action: "OVERRIDDEN", entity: "Credit Hold ORD-NGT-26-0089", time: "15 min ago", ip: "182.181.45.30", branch: "Northgate",     severity: "warning" as const },
+  { id: 4, user: "Ben Alder",   action: "POSTED",     entity: "GRN-CEN-26-0089",            time: "1 hour ago",  ip: "182.181.45.45", branch: "Central",    severity: "info" as const },
+  { id: 5, user: "Hugo Ramos",   action: "CREATED",    entity: "Voucher VCH-CEN-26-0089",    time: "2 hours ago", ip: "182.181.45.30", branch: "Central",    severity: "info" as const },
+  { id: 6, user: "Alex Hartley",    action: "UPDATED",    entity: "Party NX-C-0008 (credit limit)", time: "3 hours ago", ip: "182.181.45.10", branch: "Central", severity: "warning" as const },
+  { id: 7, user: "Alex Hartley",    action: "CREATED",    entity: "Customer NX-C-0024",         time: "3 hours ago", ip: "182.181.45.10", branch: "Central",    severity: "info" as const },
+  { id: 8, user: "Sara Doyle",     action: "LOGIN",      entity: "User session",                time: "5 hours ago", ip: "182.181.45.22", branch: "Northgate",     severity: "muted" as const },
+  { id: 9, user: "Andre Sallis",      action: "LOGIN_FAIL", entity: "Failed authentication",       time: "Yesterday",   ip: "39.40.123.55",  branch: "—",           severity: "danger" as const },
+  { id: 10, user: "Alex Hartley",   action: "DELETED",    entity: "Product NX-OLD-005",          time: "Yesterday",   ip: "182.181.45.10", branch: "Central",    severity: "danger" as const },
 ];
 
 type Action = (typeof ACTIONS)[number];

@@ -22,10 +22,10 @@ type Session = {
 };
 
 const SESSIONS: Session[] = [
-  { id: 1, device: "desktop", browser: "Chrome 122",  os: "Windows 11",  ip: "182.181.45.10", location: "Karachi, Pakistan", lastActive: "Now",            isCurrent: true  },
-  { id: 2, device: "mobile",  browser: "Safari",      os: "iOS 18",      ip: "39.40.123.55",  location: "Karachi, Pakistan", lastActive: "2 hours ago",     isCurrent: false },
-  { id: 3, device: "desktop", browser: "Edge 122",    os: "Windows 11",  ip: "182.181.45.10", location: "Karachi, Pakistan", lastActive: "Yesterday",       isCurrent: false },
-  { id: 4, device: "tablet",  browser: "Chrome 122",  os: "iPad OS",     ip: "203.135.10.42", location: "Lahore, Pakistan",  lastActive: "5 days ago",      isCurrent: false },
+  { id: 1, device: "desktop", browser: "Chrome 122",  os: "Windows 11",  ip: "182.181.45.10", location: "Central District", lastActive: "Now",            isCurrent: true  },
+  { id: 2, device: "mobile",  browser: "Safari",      os: "iOS 18",      ip: "39.40.123.55",  location: "Central District", lastActive: "2 hours ago",     isCurrent: false },
+  { id: 3, device: "desktop", browser: "Edge 122",    os: "Windows 11",  ip: "182.181.45.10", location: "Central District", lastActive: "Yesterday",       isCurrent: false },
+  { id: 4, device: "tablet",  browser: "Chrome 122",  os: "iPad OS",     ip: "203.135.10.42", location: "Northgate District",  lastActive: "5 days ago",      isCurrent: false },
 ];
 
 const ICON_MAP = { desktop: Monitor, mobile: Smartphone, tablet: Tablet };

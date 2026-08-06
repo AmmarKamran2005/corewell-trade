@@ -3,7 +3,7 @@
  * --------------------------------------------------------------------------
  * Nortex distributes its own brand of mobile accessories: Titan, PowerX, VSP,
  * VR series, VOLT — earbuds, chargers, cables, power banks, speakers, etc.
- * HQ: Nortex House, Plot 42, Saddar, Karachi.
+ * HQ: Nortex House, 42 Trade Park Road, Central.
  *
  * This will be replaced by real API calls when backend is integrated.
  */
@@ -44,7 +44,7 @@ export type QuickCreateItem = {
 
 export const currentUser: CurrentUser = {
   id: 1,
-  fullName: "Adnan Sheikh",
+  fullName: "Alex Hartley",
   email: "adnan@nortex.demo",
   role: "SuperAdmin",
   initials: "UM",
@@ -53,15 +53,15 @@ export const currentUser: CurrentUser = {
 };
 
 export const branches: Branch[] = [
-  { id: 1, code: "KHI", name: "Karachi Head Office", city: "Karachi · Saddar" },
-  { id: 2, code: "LHR", name: "Lahore Branch",       city: "Lahore · Hafeez Center" },
-  { id: 3, code: "ISB", name: "Islamabad Branch",    city: "Islamabad · Blue Area" },
+  { id: 1, code: "CEN", name: "Central Head Office", city: "Central · Market Row" },
+  { id: 2, code: "NGT", name: "Northgate Branch",       city: "Northgate · Riverside Plaza" },
+  { id: 3, code: "HBR", name: "Harbour Branch",    city: "Harbour · Quarter" },
 ];
 
 export const notifications: AppNotification[] = [
   { id: 1, type: "warning", icon: "alert-triangle", title: "3 orders on credit hold",   body: "Pending your override decision",    time: "2 min ago",  unread: true  },
-  { id: 2, type: "info",    icon: "package",        title: "GRN-KHI-26-0089 received",  body: "From China Mobile Plaza, 240 units", time: "15 min ago", unread: true  },
-  { id: 3, type: "success", icon: "banknote",       title: "Payment received",          body: "PKR 1,45,000 from Hafeez Center #28", time: "1 hour ago", unread: true  },
+  { id: 2, type: "info",    icon: "package",        title: "GRN-CEN-26-0089 received",  body: "From China Mobile Plaza, 240 units", time: "15 min ago", unread: true  },
+  { id: 3, type: "success", icon: "banknote",       title: "Payment received",          body: "USD 1,45,000 from Riverside Plaza #28", time: "1 hour ago", unread: true  },
   { id: 4, type: "danger",  icon: "clock",          title: "7 invoices overdue",        body: "AR aging 60+ days needs attention", time: "3 hours ago", unread: false },
   { id: 5, type: "info",    icon: "database",       title: "Backup completed",          body: "Daily backup successful — 1.2 GB",  time: "Yesterday",  unread: false },
 ];
@@ -100,9 +100,9 @@ export const salesTrendData = [
 ];
 
 export const branchPerformance = [
-  { branch: "Karachi",   revenue: 12400000, target: 16000000, color: "var(--color-brand)" },
-  { branch: "Lahore",    revenue: 6850000,  target: 12500000, color: "var(--color-info)" },
-  { branch: "Islamabad", revenue: 2570000,  target: 6000000,  color: "var(--color-success)" },
+  { branch: "Central",   revenue: 12400000, target: 16000000, color: "var(--color-brand)" },
+  { branch: "Northgate",    revenue: 6850000,  target: 12500000, color: "var(--color-info)" },
+  { branch: "Harbour", revenue: 2570000,  target: 6000000,  color: "var(--color-success)" },
 ];
 
 /* ───────────── Top Products (Nortex mobile accessories) ─────────────
@@ -117,28 +117,28 @@ export const topProducts = [
 ];
 
 export const stockAlerts = [
-  { kind: "danger",  title: "Out of stock", subtitle: "3 SKUs in Lahore warehouse have zero stock",   cta: "View list",      icon: "alert-circle" },
+  { kind: "danger",  title: "Out of stock", subtitle: "3 SKUs in Northgate warehouse have zero stock",   cta: "View list",      icon: "alert-circle" },
   { kind: "warning", title: "Low stock",    subtitle: "9 SKUs below reorder level across branches",   cta: "Review reorder", icon: "trending-down" },
-  { kind: "info",    title: "Dead stock",   subtitle: "PKR 18.2L tied up in 24 SKUs (180+ days)",     cta: "Plan clearance", icon: "archive" },
+  { kind: "info",    title: "Dead stock",   subtitle: "$18.2K tied up in 24 SKUs (180+ days)",     cta: "Plan clearance", icon: "archive" },
 ];
 
 export const cashPosition = {
   total: 4780000,
   breakdown: [
     { label: "Cash on Hand",   sublabel: "3 cashiers",                value: 840000,  color: "success", icon: "wallet"     },
-    { label: "Bank Accounts",  sublabel: "HBL · Meezan · UBL",        value: 3720000, color: "info",    icon: "landmark"   },
-    { label: "Mobile Wallets", sublabel: "Easypaisa · JazzCash",      value: 220000,  color: "yellow",  icon: "smartphone" },
+    { label: "Bank Accounts",  sublabel: "Anchor · Meridian · Vantage",        value: 3720000, color: "info",    icon: "landmark"   },
+    { label: "Mobile Wallets", sublabel: "WalletPay · PayLink",      value: 220000,  color: "yellow",  icon: "smartphone" },
   ],
 };
 
 /* ───────────── Recent Orders (real customer types: mobile shops) ───────────── */
 export const recentOrders = [
-  { orderNo: "ORD-KHI-26-0142", customer: "Hafeez Center #28",     type: "Wholesaler",  initials: "HC", branch: "Karachi",   amount: 145000, status: "Dispatched",  statusVariant: "success" },
-  { orderNo: "ORD-LHR-26-0089", customer: "Mobile Zone Lahore",    type: "Retailer",    initials: "MZ", branch: "Lahore",    amount: 84500,  status: "Credit Hold", statusVariant: "warning" },
-  { orderNo: "ORD-KHI-26-0141", customer: "Saddar Mobile Plaza",   type: "Retailer",    initials: "SM", branch: "Karachi",   amount: 32750,  status: "Confirmed",   statusVariant: "info"    },
-  { orderNo: "ORD-ISB-26-0034", customer: "Blue Area Distributors",type: "Distributor", initials: "BA", branch: "Islamabad", amount: 218000, status: "Dispatched",  statusVariant: "success" },
-  { orderNo: "ORD-KHI-26-0140", customer: "Cellular World KHI",    type: "Wholesaler",  initials: "CW", branch: "Karachi",   amount: 56200,  status: "Packing",     statusVariant: "muted"   },
-  { orderNo: "ORD-LHR-26-0088", customer: "Faisal Mobile Mart",    type: "Retailer",    initials: "FM", branch: "Lahore",    amount: 18400,  status: "Delivered",   statusVariant: "success" },
+  { orderNo: "ORD-CEN-26-0142", customer: "Riverside Plaza #28",     type: "Wholesaler",  initials: "HC", branch: "Central",   amount: 145000, status: "Dispatched",  statusVariant: "success" },
+  { orderNo: "ORD-NGT-26-0089", customer: "Mobile Zone Northgate",    type: "Retailer",    initials: "MZ", branch: "Northgate",    amount: 84500,  status: "Credit Hold", statusVariant: "warning" },
+  { orderNo: "ORD-CEN-26-0141", customer: "Market Row Mobile Plaza",   type: "Retailer",    initials: "SM", branch: "Central",   amount: 32750,  status: "Confirmed",   statusVariant: "info"    },
+  { orderNo: "ORD-HBR-26-0034", customer: "Harbour Distributors",type: "Distributor", initials: "BA", branch: "Harbour", amount: 218000, status: "Dispatched",  statusVariant: "success" },
+  { orderNo: "ORD-CEN-26-0140", customer: "Cellular World Central",    type: "Wholesaler",  initials: "CW", branch: "Central",   amount: 56200,  status: "Packing",     statusVariant: "muted"   },
+  { orderNo: "ORD-NGT-26-0088", customer: "Fairview Mobile Mart",    type: "Retailer",    initials: "FM", branch: "Northgate",    amount: 18400,  status: "Delivered",   statusVariant: "success" },
 ];
 
 /* ───────────── Activity feed ───────────── */
@@ -155,11 +155,11 @@ export type ActivityItem = {
 };
 
 export const recentActivity: ActivityItem[] = [
-  { id: 1, user: "Sara Khan",    action: "dispatched order",        target: "ORD-KHI-26-0142", detail: "Invoice INV-KHI-26-0142 generated automatically",    time: "2 min ago",   branch: "Karachi", iconKind: "success", icon: "check" },
-  { id: 2, user: "System",       action: "placed order on",         target: "credit hold",     detail: "Mobile Zone Lahore exceeded credit limit by PKR 12,400", time: "15 min ago", branch: "Lahore",  iconKind: "warning", icon: "alert-triangle" },
-  { id: 3, user: "Bilal Ahmed",  action: "received GRN",            target: "GRN-KHI-26-0089", detail: "From China Mobile Plaza · 240 units · PKR 4,82,000", time: "1 hour ago",  branch: "Karachi", iconKind: "info",    icon: "package" },
-  { id: 4, user: "Hassan Raza",  action: "recorded payment of",     target: "PKR 1,45,000",    detail: "Hafeez Center #28 · Bank transfer · Allocated to 3 invoices", time: "2 hours ago", branch: "Karachi", iconKind: "success", icon: "banknote" },
-  { id: 5, user: "You",          action: "added new customer",      target: "Quetta Cellular",  detail: "Retailer · Credit limit PKR 50,000 · NET 15",        time: "3 hours ago",                       iconKind: "accent",  icon: "user-plus" },
+  { id: 1, user: "Sara Doyle",    action: "dispatched order",        target: "ORD-CEN-26-0142", detail: "Invoice INV-CEN-26-0142 generated automatically",    time: "2 min ago",   branch: "Central", iconKind: "success", icon: "check" },
+  { id: 2, user: "System",       action: "placed order on",         target: "credit hold",     detail: "Mobile Zone Northgate exceeded credit limit by USD 12,400", time: "15 min ago", branch: "Northgate",  iconKind: "warning", icon: "alert-triangle" },
+  { id: 3, user: "Ben Alder",  action: "received GRN",            target: "GRN-CEN-26-0089", detail: "From China Mobile Plaza · 240 units · USD 4,82,000", time: "1 hour ago",  branch: "Central", iconKind: "info",    icon: "package" },
+  { id: 4, user: "Hugo Ramos",  action: "recorded payment of",     target: "USD 1,45,000",    detail: "Riverside Plaza #28 · Bank transfer · Allocated to 3 invoices", time: "2 hours ago", branch: "Central", iconKind: "success", icon: "banknote" },
+  { id: 5, user: "You",          action: "added new customer",      target: "Brookside Cellular",  detail: "Retailer · Credit limit USD 50,000 · NET 15",        time: "3 hours ago",                       iconKind: "accent",  icon: "user-plus" },
 ];
 
 /* ───────────── AI Insight (daily briefing) ───────────── */
@@ -168,11 +168,11 @@ export const aiInsight = {
     { content: "Sales are " },
     { content: "up 12% week-over-week", highlight: true },
     { content: ", driven mainly by " },
-    { content: "Karachi branch", bold: true },
+    { content: "Central branch", bold: true },
     { content: ". However, " },
-    { content: "3 wholesalers in Lahore", highlight: true },
+    { content: "3 wholesalers in Northgate", highlight: true },
     { content: " have crossed their credit limit — recommend collections action this week. Slow-moving stock value is at " },
-    { content: "PKR 18.2L", highlight: true },
+    { content: "$18.2K", highlight: true },
     { content: "; consider a clearance promotion." },
   ],
 };

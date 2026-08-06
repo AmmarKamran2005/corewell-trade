@@ -15,11 +15,11 @@ import { formatDate, formatMoney } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const ADJUSTMENTS = [
-  { id: 1, adjustmentNo: "ADJ-KHI-26-0034", date: "2026-04-28", warehouse: "KHI-WH-01", reason: "Physical count discrepancy", reasonNotes: "Q2 cycle count revealed shortage in earbuds bin", itemCount: 3, netImpact: -8,  netValue: -4640, status: "Posted", user: "Hassan Raza" },
-  { id: 2, adjustmentNo: "ADJ-LHR-26-0012", date: "2026-04-25", warehouse: "LHR-WH-01", reason: "Damaged in handling",         reasonNotes: "Earbuds dropped during palletization", itemCount: 2, netImpact: -5, netValue: -2900,  status: "Posted", user: "Sara Khan" },
-  { id: 3, adjustmentNo: "ADJ-KHI-26-0033", date: "2026-04-24", warehouse: "KHI-WH-01", reason: "Found extra stock",            reasonNotes: "Misplaced carton found in receiving area", itemCount: 1, netImpact: 4, netValue: 2320,    status: "Posted", user: "Hassan Raza" },
-  { id: 4, adjustmentNo: "ADJ-ISB-26-0008", date: "2026-04-22", warehouse: "ISB-WH-01", reason: "Expired stock write-off",      reasonNotes: "Old batch beyond shelf life", itemCount: 4, netImpact: -12, netValue: -6960, status: "Posted", user: "Bilal Ahmed" },
-  { id: 5, adjustmentNo: "ADJ-KHI-26-0035", date: "2026-04-30", warehouse: "KHI-WH-01", reason: "Stock count adjustment",       reasonNotes: "Pending review", itemCount: 2, netImpact: 0, netValue: 0,   status: "Draft",  user: "Hassan Raza" },
+  { id: 1, adjustmentNo: "ADJ-CEN-26-0034", date: "2026-04-28", warehouse: "CEN-WH-01", reason: "Physical count discrepancy", reasonNotes: "Q2 cycle count revealed shortage in earbuds bin", itemCount: 3, netImpact: -8,  netValue: -4640, status: "Posted", user: "Hugo Ramos" },
+  { id: 2, adjustmentNo: "ADJ-NGT-26-0012", date: "2026-04-25", warehouse: "NGT-WH-01", reason: "Damaged in handling",         reasonNotes: "Earbuds dropped during palletization", itemCount: 2, netImpact: -5, netValue: -2900,  status: "Posted", user: "Sara Doyle" },
+  { id: 3, adjustmentNo: "ADJ-CEN-26-0033", date: "2026-04-24", warehouse: "CEN-WH-01", reason: "Found extra stock",            reasonNotes: "Misplaced carton found in receiving area", itemCount: 1, netImpact: 4, netValue: 2320,    status: "Posted", user: "Hugo Ramos" },
+  { id: 4, adjustmentNo: "ADJ-HBR-26-0008", date: "2026-04-22", warehouse: "HBR-WH-01", reason: "Expired stock write-off",      reasonNotes: "Old batch beyond shelf life", itemCount: 4, netImpact: -12, netValue: -6960, status: "Posted", user: "Ben Alder" },
+  { id: 5, adjustmentNo: "ADJ-CEN-26-0035", date: "2026-04-30", warehouse: "CEN-WH-01", reason: "Stock count adjustment",       reasonNotes: "Pending review", itemCount: 2, netImpact: 0, netValue: 0,   status: "Draft",  user: "Hugo Ramos" },
 ];
 
 const SAMPLE_LINES = [

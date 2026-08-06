@@ -88,9 +88,9 @@ export default function InvoiceDetailPage() {
               </div>
               <div className="text-xs text-slate-600 dark:text-slate-300 space-y-0.5">
                 <div>Nortex Trading Company (Pvt.) Ltd.</div>
-                <div>Nortex House, Plot 42, Saddar, Karachi</div>
-                <div>NTN: 0123456-7 · STRN: 32-77-8901-234-56</div>
-                <div>info@nortex.demo · 0300 5566778</div>
+                <div>Nortex House, 42 Trade Park Road, Central</div>
+                <div>Tax ID: 0123456-7 · VAT: 32-77-8901-234-56</div>
+                <div>info@nortex.demo · 555 06778</div>
               </div>
             </div>
 
@@ -116,8 +116,8 @@ export default function InvoiceDetailPage() {
                   {customer && (
                     <div className="text-xs text-slate-600 dark:text-slate-300 mt-1 space-y-0.5">
                       <div className="inline-flex items-center gap-1.5"><Phone className="size-3" /> {customer.phone}</div>
-                      <div className="inline-flex items-center gap-1.5"><MapPin className="size-3" /> {customer.city}, Pakistan</div>
-                      {customer.ntn && <div>NTN: <span className="tabular">{customer.ntn}</span></div>}
+                      <div className="inline-flex items-center gap-1.5"><MapPin className="size-3" /> {customer.city}, the region</div>
+                      {customer.taxId && <div>Tax ID: <span className="tabular">{customer.taxId}</span></div>}
                     </div>
                   )}
                 </div>
@@ -185,7 +185,7 @@ export default function InvoiceDetailPage() {
           {/* Footer */}
           <div className="border-t border-slate-200 dark:border-navy-700 pt-6 text-center">
             <div className="text-xs text-slate-500 dark:text-slate-400">
-              Thank you for your business · Payment terms: NET 30 · Bank: Meezan Bank · IBAN: PK01 MEZN 0001 2345 6789 0123
+              Thank you for your business · Payment terms: NET 30 · Bank: Meridian Bank · IBAN: PK01 MEZN 0001 2345 6789 0123
             </div>
             <div className="text-2xs text-slate-400 mt-2">
               This is a computer-generated invoice and does not require a signature.
@@ -221,7 +221,7 @@ export default function InvoiceDetailPage() {
         contextVars={{
           name: invoice.customerName,
           invoiceNo: invoice.invoiceNo,
-          amount: formatMoney(invoice.balance).replace("PKR ", ""),
+          amount: formatMoney(invoice.balance).replace("USD ", ""),
         }}
       />
     </>

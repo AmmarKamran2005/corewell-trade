@@ -19,8 +19,8 @@ import { toast } from "@/components/ui/toaster";
 
 const RECENT_ACTIVITY = [
   { id: 1, action: "Logged in",                    time: "2 min ago",     ip: "182.181.45.10" },
-  { id: 2, action: "Dispatched order ORD-KHI-26-0142", time: "30 min ago", ip: "182.181.45.10" },
-  { id: 3, action: "Confirmed order ORD-KHI-26-0141",  time: "1 hour ago", ip: "182.181.45.10" },
+  { id: 2, action: "Dispatched order ORD-CEN-26-0142", time: "30 min ago", ip: "182.181.45.10" },
+  { id: 3, action: "Confirmed order ORD-CEN-26-0141",  time: "1 hour ago", ip: "182.181.45.10" },
   { id: 4, action: "Logged in",                    time: "Yesterday",      ip: "182.181.45.10" },
 ];
 

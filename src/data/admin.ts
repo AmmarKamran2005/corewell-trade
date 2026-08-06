@@ -17,10 +17,10 @@ export type Warehouse = {
 };
 
 export const warehouses: Warehouse[] = [
-  { id: 1, code: "KHI-WH-01", name: "Karachi Main Warehouse", city: "Karachi · Saddar",        branchId: 1, managerId: 2, isActive: true, productCount: 28, totalValue: 18450000 },
-  { id: 2, code: "KHI-WH-02", name: "Karachi Damaged Goods",  city: "Karachi · Saddar",        branchId: 1, managerId: 2, isActive: true, productCount: 14, totalValue: 245000 },
-  { id: 3, code: "LHR-WH-01", name: "Lahore Distribution",    city: "Lahore · Hafeez Center",  branchId: 2, managerId: 3, isActive: true, productCount: 26, totalValue: 12480000 },
-  { id: 4, code: "ISB-WH-01", name: "Islamabad Hub",          city: "Islamabad · Blue Area",   branchId: 3, managerId: 4, isActive: true, productCount: 22, totalValue: 8240000 },
+  { id: 1, code: "CEN-WH-01", name: "Central Main Warehouse", city: "Central · Market Row",        branchId: 1, managerId: 2, isActive: true, productCount: 28, totalValue: 18450000 },
+  { id: 2, code: "CEN-WH-02", name: "Central Damaged Goods",  city: "Central · Market Row",        branchId: 1, managerId: 2, isActive: true, productCount: 14, totalValue: 245000 },
+  { id: 3, code: "NGT-WH-01", name: "Northgate Distribution",    city: "Northgate · Riverside Plaza",  branchId: 2, managerId: 3, isActive: true, productCount: 26, totalValue: 12480000 },
+  { id: 4, code: "HBR-WH-01", name: "Harbour Hub",          city: "Harbour · Quarter",   branchId: 3, managerId: 4, isActive: true, productCount: 22, totalValue: 8240000 },
 ];
 
 export type Branch = {
@@ -42,9 +42,9 @@ export type Branch = {
 };
 
 export const branchesAdmin: Branch[] = [
-  { id: 1, code: "KHI", name: "Karachi Head Office", city: "Karachi", address: "Nortex House, Plot 42, Saddar, Karachi", phone: "021 32412345", manager: "Adnan Sheikh",  isHeadOffice: true,  isActive: true, invoicePrefix: "KHI-INV", poPrefix: "KHI-PO", voucherPrefix: "KHI-VCH", warehouseCount: 2, userCount: 12, monthlyRevenue: 12400000 },
-  { id: 2, code: "LHR", name: "Lahore Branch",       city: "Lahore",  address: "Hafeez Center, Lahore",            phone: "042 35712345", manager: "Sara Khan",   isHeadOffice: false, isActive: true, invoicePrefix: "LHR-INV", poPrefix: "LHR-PO", voucherPrefix: "LHR-VCH", warehouseCount: 1, userCount: 8,  monthlyRevenue: 6850000 },
-  { id: 3, code: "ISB", name: "Islamabad Branch",    city: "Islamabad", address: "Blue Area, Islamabad",            phone: "051 22812345", manager: "Bilal Ahmed", isHeadOffice: false, isActive: true, invoicePrefix: "ISB-INV", poPrefix: "ISB-PO", voucherPrefix: "ISB-VCH", warehouseCount: 1, userCount: 5,  monthlyRevenue: 2570000 },
+  { id: 1, code: "CEN", name: "Central Head Office", city: "Central", address: "Nortex House, 42 Trade Park Road, Central", phone: "021 32412345", manager: "Alex Hartley",  isHeadOffice: true,  isActive: true, invoicePrefix: "CEN-INV", poPrefix: "CEN-PO", voucherPrefix: "CEN-VCH", warehouseCount: 2, userCount: 12, monthlyRevenue: 12400000 },
+  { id: 2, code: "NGT", name: "Northgate Branch",       city: "Northgate",  address: "Riverside Plaza, Northgate",            phone: "042 35712345", manager: "Sara Doyle",   isHeadOffice: false, isActive: true, invoicePrefix: "NGT-INV", poPrefix: "NGT-PO", voucherPrefix: "NGT-VCH", warehouseCount: 1, userCount: 8,  monthlyRevenue: 6850000 },
+  { id: 3, code: "HBR", name: "Harbour Branch",    city: "Harbour", address: "Harbour Quarter",            phone: "051 22812345", manager: "Ben Alder", isHeadOffice: false, isActive: true, invoicePrefix: "HBR-INV", poPrefix: "HBR-PO", voucherPrefix: "HBR-VCH", warehouseCount: 1, userCount: 5,  monthlyRevenue: 2570000 },
 ];
 
 export type Role = {
@@ -107,18 +107,18 @@ const u = (
 });
 
 export const users: User[] = [
-  u(1,  "Adnan Sheikh",     "adnan@nortex.demo",          "0300 5566778", "EMP-001", ["SuperAdmin"],         ["KHI", "LHR", "ISB"], true,  "2 min ago"),
-  u(2,  "Hassan Raza",    "hassan@nortex.demo",        "0321 1234567", "EMP-002", ["Accountant"],         ["KHI"],               true,  "12 min ago"),
-  u(3,  "Sara Khan",      "sara@nortex.demo",          "0322 2345678", "EMP-003", ["Sales"],              ["LHR"],               true,  "5 min ago"),
-  u(4,  "Bilal Ahmed",    "bilal@nortex.demo",         "0333 3456789", "EMP-004", ["Order Department"],   ["KHI"],               true,  "1 hour ago"),
-  u(5,  "Fatima Sheikh",  "fatima@nortex.demo",        "0345 4567890", "EMP-005", ["Branch Manager"],     ["LHR"],               true,  "3 hours ago"),
-  u(6,  "Ahmed Riaz",     "ahmed@nortex.demo",         "0317 5678901", "EMP-006", ["Purchase Officer"],   ["KHI"],               true,  "Yesterday"),
-  u(7,  "Zara Malik",     "zara@nortex.demo",          "0307 6789012", "EMP-007", ["Sales"],              ["KHI"],               true,  "30 min ago"),
-  u(8,  "Imran Iqbal",    "imran@nortex.demo",         "0334 7890123", "EMP-008", ["Sales"],              ["LHR"],               true,  "2 hours ago"),
-  u(9,  "Nadia Hussain",  "nadia@nortex.demo",         "0301 8901234", "EMP-009", ["Accountant"],         ["LHR"],               true,  "1 day ago"),
-  u(10, "Junaid Akhtar",  "junaid@nortex.demo",        "0314 9012345", "EMP-010", ["Order Department"],   ["ISB"],               true,  "4 hours ago"),
-  u(11, "Rabia Yousaf",   "rabia@nortex.demo",         "0341 0123456", "EMP-011", ["Collections"],        ["KHI"],               true,  "6 hours ago"),
-  u(12, "Asad Ali",       "asad@nortex.demo",          "0303 1234567", "EMP-012", ["Sales"],              ["KHI"],               false, "5 days ago"),
+  u(1,  "Alex Hartley",     "adnan@nortex.demo",          "555 06778", "EMP-001", ["SuperAdmin"],         ["CEN", "NGT", "HBR"], true,  "2 min ago"),
+  u(2,  "Hugo Ramos",    "hassan@nortex.demo",        "555 04567", "EMP-002", ["Accountant"],         ["CEN"],               true,  "12 min ago"),
+  u(3,  "Sara Doyle",      "sara@nortex.demo",          "555 05678", "EMP-003", ["Sales"],              ["NGT"],               true,  "5 min ago"),
+  u(4,  "Ben Alder",    "bilal@nortex.demo",         "555 06789", "EMP-004", ["Order Department"],   ["CEN"],               true,  "1 hour ago"),
+  u(5,  "Elena Ross",  "fatima@nortex.demo",        "555 07890", "EMP-005", ["Branch Manager"],     ["NGT"],               true,  "3 hours ago"),
+  u(6,  "Adam Rios",     "ahmed@nortex.demo",         "555 08901", "EMP-006", ["Purchase Officer"],   ["CEN"],               true,  "Yesterday"),
+  u(7,  "Zara Malik",     "zara@nortex.demo",          "555 09012", "EMP-007", ["Sales"],              ["CEN"],               true,  "30 min ago"),
+  u(8,  "Ivan Kohl",    "imran@nortex.demo",         "555 00123", "EMP-008", ["Sales"],              ["NGT"],               true,  "2 hours ago"),
+  u(9,  "Nadia Hollis",  "nadia@nortex.demo",         "555 01234", "EMP-009", ["Accountant"],         ["NGT"],               true,  "1 day ago"),
+  u(10, "Jonas Aker",  "junaid@nortex.demo",        "555 02345", "EMP-010", ["Order Department"],   ["HBR"],               true,  "4 hours ago"),
+  u(11, "Rabia Yousaf",   "rabia@nortex.demo",         "555 03456", "EMP-011", ["Collections"],        ["CEN"],               true,  "6 hours ago"),
+  u(12, "Andre Sallis",       "asad@nortex.demo",          "555 04567", "EMP-012", ["Sales"],              ["CEN"],               false, "5 days ago"),
 ];
 
 export function getUser(id: number) {

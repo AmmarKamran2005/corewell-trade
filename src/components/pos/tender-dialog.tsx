@@ -80,7 +80,8 @@ function TenderBody({
 
   function submitAmount(e: React.FormEvent) {
     e.preventDefault();
-    const value = Number(amount) || (due > 0 ? due : 0);
+    /* The field is typed in major units; everything downstream is minor. */
+    const value = amount ? Math.round(Number(amount) * 100) : due > 0 ? due : 0;
     if (meta.needsReference && !reference.trim()) return;
     if (meta.needsReference && value > due) {
       /* Non-cash cannot over-tender — a card terminal charges an exact amount. */
@@ -166,7 +167,7 @@ function TenderBody({
                     step="0.01"
                     value={amount}
                     autoFocus
-                    placeholder={due > 0 ? String(due) : "0"}
+                    placeholder={due > 0 ? (due / 100).toFixed(2) : "0.00"}
                     onChange={(e) => setAmount(e.target.value)}
                     className="h-12 text-lg tabular font-semibold"
                   />
@@ -181,16 +182,16 @@ function TenderBody({
                       <button
                         key={d}
                         type="button"
-                        onClick={() => setAmount(String(d))}
+                        onClick={() => setAmount((d / 100).toFixed(2))}
                         className="h-11 px-3 rounded-lg border border-slate-200 dark:border-navy-700 text-sm tabular font-medium text-navy-900 dark:text-white hover:border-brand hover:bg-brand-50 dark:hover:bg-navy-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
                       >
-                        {d.toLocaleString("en-PK")}
+                        {formatMoney(d, { decimals: 0 })}
                       </button>
                     ))}
                     {due > 0 && (
                       <button
                         type="button"
-                        onClick={() => setAmount(String(due))}
+                        onClick={() => setAmount((due / 100).toFixed(2))}
                         className="h-11 px-3 rounded-lg border border-brand bg-brand-50 dark:bg-brand/15 text-sm tabular font-semibold text-brand-700 dark:text-brand-300 hover:bg-brand-100 dark:hover:bg-brand/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
                       >
                         Exact

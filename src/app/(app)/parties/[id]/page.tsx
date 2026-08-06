@@ -31,31 +31,31 @@ import { cn } from "@/lib/utils";
 
 /* Mock per-party transactions */
 const mockOrders = [
-  { id: 1, orderNo: "ORD-KHI-26-0142", date: "2026-04-30", amount: 145000, status: "Dispatched",  variant: "success" as const },
-  { id: 2, orderNo: "ORD-KHI-26-0128", date: "2026-04-22", amount: 88000,  status: "Delivered",   variant: "success" as const },
-  { id: 3, orderNo: "ORD-KHI-26-0114", date: "2026-04-15", amount: 215500, status: "Delivered",   variant: "success" as const },
-  { id: 4, orderNo: "ORD-KHI-26-0098", date: "2026-04-08", amount: 64200,  status: "Delivered",   variant: "success" as const },
+  { id: 1, orderNo: "ORD-CEN-26-0142", date: "2026-04-30", amount: 145000, status: "Dispatched",  variant: "success" as const },
+  { id: 2, orderNo: "ORD-CEN-26-0128", date: "2026-04-22", amount: 88000,  status: "Delivered",   variant: "success" as const },
+  { id: 3, orderNo: "ORD-CEN-26-0114", date: "2026-04-15", amount: 215500, status: "Delivered",   variant: "success" as const },
+  { id: 4, orderNo: "ORD-CEN-26-0098", date: "2026-04-08", amount: 64200,  status: "Delivered",   variant: "success" as const },
 ];
 
 const mockInvoices = [
-  { id: 1, invoiceNo: "INV-KHI-26-0142", date: "2026-04-30", dueDate: "2026-05-30", amount: 145000, paid: 0,      status: "Unpaid",   variant: "warning" as const },
-  { id: 2, invoiceNo: "INV-KHI-26-0128", date: "2026-04-22", dueDate: "2026-05-22", amount: 88000,  paid: 88000,  status: "Paid",     variant: "success" as const },
-  { id: 3, invoiceNo: "INV-KHI-26-0114", date: "2026-04-15", dueDate: "2026-05-15", amount: 215500, paid: 100000, status: "Partial",  variant: "info" as const },
-  { id: 4, invoiceNo: "INV-KHI-26-0098", date: "2026-04-08", dueDate: "2026-05-08", amount: 64200,  paid: 64200,  status: "Paid",     variant: "success" as const },
+  { id: 1, invoiceNo: "INV-CEN-26-0142", date: "2026-04-30", dueDate: "2026-05-30", amount: 145000, paid: 0,      status: "Unpaid",   variant: "warning" as const },
+  { id: 2, invoiceNo: "INV-CEN-26-0128", date: "2026-04-22", dueDate: "2026-05-22", amount: 88000,  paid: 88000,  status: "Paid",     variant: "success" as const },
+  { id: 3, invoiceNo: "INV-CEN-26-0114", date: "2026-04-15", dueDate: "2026-05-15", amount: 215500, paid: 100000, status: "Partial",  variant: "info" as const },
+  { id: 4, invoiceNo: "INV-CEN-26-0098", date: "2026-04-08", dueDate: "2026-05-08", amount: 64200,  paid: 64200,  status: "Paid",     variant: "success" as const },
 ];
 
 const mockLedger = [
-  { id: 1, date: "2026-04-30", reference: "INV-KHI-26-0142", description: "Sales Invoice",      debit: 145000, credit: 0,      balance: 245000 },
-  { id: 2, date: "2026-04-25", reference: "VCH-KHI-26-0089", description: "Bank Receipt",       debit: 0,      credit: 100000, balance: 100000 },
-  { id: 3, date: "2026-04-22", reference: "INV-KHI-26-0128", description: "Sales Invoice",      debit: 88000,  credit: 0,      balance: 200000 },
-  { id: 4, date: "2026-04-22", reference: "VCH-KHI-26-0085", description: "Cash Receipt",       debit: 0,      credit: 88000,  balance: 112000 },
-  { id: 5, date: "2026-04-15", reference: "INV-KHI-26-0114", description: "Sales Invoice",      debit: 215500, credit: 0,      balance: 200000 },
+  { id: 1, date: "2026-04-30", reference: "INV-CEN-26-0142", description: "Sales Invoice",      debit: 145000, credit: 0,      balance: 245000 },
+  { id: 2, date: "2026-04-25", reference: "VCH-CEN-26-0089", description: "Bank Receipt",       debit: 0,      credit: 100000, balance: 100000 },
+  { id: 3, date: "2026-04-22", reference: "INV-CEN-26-0128", description: "Sales Invoice",      debit: 88000,  credit: 0,      balance: 200000 },
+  { id: 4, date: "2026-04-22", reference: "VCH-CEN-26-0085", description: "Cash Receipt",       debit: 0,      credit: 88000,  balance: 112000 },
+  { id: 5, date: "2026-04-15", reference: "INV-CEN-26-0114", description: "Sales Invoice",      debit: 215500, credit: 0,      balance: 200000 },
 ];
 
 const mockVisits = [
-  { id: 1, date: "2026-04-29", time: "11:30 AM", salesPerson: "Sara Khan",  outcome: "Order Placed",   variant: "success" as const, notes: "Discussed bulk discount on PowerX line" },
-  { id: 2, date: "2026-04-22", time: "10:15 AM", salesPerson: "Sara Khan",  outcome: "Order Placed",   variant: "success" as const, notes: "Repeat order for Titan T9" },
-  { id: 3, date: "2026-04-15", time: "02:00 PM", salesPerson: "Sara Khan",  outcome: "Followup",       variant: "info" as const,    notes: "Will confirm next week" },
+  { id: 1, date: "2026-04-29", time: "11:30 AM", salesPerson: "Sara Doyle",  outcome: "Order Placed",   variant: "success" as const, notes: "Discussed bulk discount on PowerX line" },
+  { id: 2, date: "2026-04-22", time: "10:15 AM", salesPerson: "Sara Doyle",  outcome: "Order Placed",   variant: "success" as const, notes: "Repeat order for Titan T9" },
+  { id: 3, date: "2026-04-15", time: "02:00 PM", salesPerson: "Sara Doyle",  outcome: "Followup",       variant: "info" as const,    notes: "Will confirm next week" },
 ];
 
 export default function PartyDetailPage() {
@@ -257,10 +257,10 @@ export default function PartyDetailPage() {
                       {party.city}, {party.province}
                     </dd>
                   </div>
-                  {party.ntn && (
+                  {party.taxId && (
                     <div>
-                      <dt className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">NTN</dt>
-                      <dd className="text-sm tabular text-navy-900 dark:text-white mt-1">{party.ntn}</dd>
+                      <dt className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">Tax ID</dt>
+                      <dd className="text-sm tabular text-navy-900 dark:text-white mt-1">{party.taxId}</dd>
                     </div>
                   )}
                   {party.salesPerson && (

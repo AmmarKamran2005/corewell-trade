@@ -22,7 +22,7 @@ const Schema = z.object({
   name: z.string().min(2).max(100),
   city: z.string().min(2).max(100),
   address: z.string().min(5).max(300),
-  phone: z.string().min(11, "Pakistan phone").regex(/^(03\d{9}|0\d{2,3}\s?\d{7,8})$/, "Format: 0300 1234567 or 021 1234567"),
+  phone: z.string().min(11, "Phone").regex(/^(03\d{9}|0\d{2,3}\s?\d{7,8})$/, "Format: 555 04567 or 021 1234567"),
   managerName: z.string().min(2),
   isHeadOffice: z.boolean(),
   invoicePrefix: z.string().min(2).max(10).regex(/^[A-Z-]+$/, "Uppercase + hyphens"),
@@ -85,22 +85,22 @@ export default function NewBranchPage() {
                     <FormField control={form.control} name="code" render={({ field }) => (
                       <FormItem>
                         <FormLabel required>Branch code</FormLabel>
-                        <FormControl><Input placeholder="KHI" {...field} onChange={(e) => field.onChange(e.target.value.toUpperCase())} /></FormControl>
-                        <FormDescription>Short uppercase identifier (e.g. KHI, LHR, ISB)</FormDescription>
+                        <FormControl><Input placeholder="CEN" {...field} onChange={(e) => field.onChange(e.target.value.toUpperCase())} /></FormControl>
+                        <FormDescription>Short uppercase identifier (e.g. CEN, NGT, HBR)</FormDescription>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="name" render={({ field }) => (
                       <FormItem>
                         <FormLabel required>Display name</FormLabel>
-                        <FormControl><Input placeholder="Karachi Head Office" {...field} /></FormControl>
+                        <FormControl><Input placeholder="Central Head Office" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="city" render={({ field }) => (
                       <FormItem>
                         <FormLabel required>City</FormLabel>
-                        <FormControl><Input placeholder="Karachi" {...field} /></FormControl>
+                        <FormControl><Input placeholder="Central" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -114,7 +114,7 @@ export default function NewBranchPage() {
                     <FormField control={form.control} name="address" render={({ field }) => (
                       <FormItem className="sm:col-span-2">
                         <FormLabel required>Address</FormLabel>
-                        <FormControl><Textarea rows={2} placeholder="Nortex House, Plot 42, Saddar, Karachi" {...field} /></FormControl>
+                        <FormControl><Textarea rows={2} placeholder="Nortex House, 42 Trade Park Road, Central" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -137,13 +137,13 @@ export default function NewBranchPage() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <FormField control={form.control} name="invoicePrefix" render={({ field }) => (
-                      <FormItem><FormLabel required>Invoice prefix</FormLabel><FormControl><Input placeholder="KHI-INV" {...field} /></FormControl><FormMessage /></FormItem>
+                      <FormItem><FormLabel required>Invoice prefix</FormLabel><FormControl><Input placeholder="CEN-INV" {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="poPrefix" render={({ field }) => (
-                      <FormItem><FormLabel required>PO prefix</FormLabel><FormControl><Input placeholder="KHI-PO" {...field} /></FormControl><FormMessage /></FormItem>
+                      <FormItem><FormLabel required>PO prefix</FormLabel><FormControl><Input placeholder="CEN-PO" {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="voucherPrefix" render={({ field }) => (
-                      <FormItem><FormLabel required>Voucher prefix</FormLabel><FormControl><Input placeholder="KHI-VCH" {...field} /></FormControl><FormMessage /></FormItem>
+                      <FormItem><FormLabel required>Voucher prefix</FormLabel><FormControl><Input placeholder="CEN-VCH" {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                   </div>
                 </CardBody>

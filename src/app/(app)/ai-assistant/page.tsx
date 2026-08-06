@@ -12,12 +12,12 @@ import { cn } from "@/lib/utils";
 
 const SUGGESTED = [
   "Which product sold most last month?",
-  "Show me overdue invoices in Karachi",
+  "Show me overdue invoices in Central",
   "Summarise this month's P&L",
   "Who should I call for collections today?",
   "Why did COGS spike in March?",
   "Top 5 customers by revenue this quarter",
-  "Compare Karachi vs Lahore branch performance",
+  "Compare Central vs Northgate branch performance",
   "What's tying up the most working capital?",
 ];
 
@@ -34,25 +34,25 @@ type Msg = { id: number; role: "user" | "assistant"; content: string; pending?: 
 function generateAnswer(question: string): string {
   const q = question.toLowerCase();
   if (q.includes("sold") || q.includes("top product") || q.includes("best seller")) {
-    return "**Top sellers — last 30 days**\n\n1. Nortex Titan T9 Earbuds — 845 units · PKR 845,000 revenue\n2. Nortex VR Type-C Cable 1.5m — 712 units · PKR 295,000\n3. Nortex VOLT 65W Charger — 480 units · PKR 485,000\n4. Nortex PowerX 20K Power Bank — 340 units · PKR 198,000\n5. Nortex VSP Bluetooth Speaker — 220 units · PKR 210,000\n\nTitan T9 is up **+18% MoM** — driven by Karachi (Hafeez Center) and Lahore (Hall Road) corridors. Recommend re-stocking before next weekend.";
+    return "**Top sellers — last 30 days**\n\n1. Nortex Titan T9 Earbuds — 845 units · $8.4K revenue\n2. Nortex VR Type-C Cable 1.5m — 712 units · $3K\n3. Nortex VOLT 65W Charger — 480 units · $4.8K\n4. Nortex PowerX 20K Power Bank — 340 units · $2K\n5. Nortex VSP Bluetooth Speaker — 220 units · $2.1K\n\nTitan T9 is up **+18% MoM** — driven by Central (Riverside Plaza) and Northgate (Market Row) corridors. Recommend re-stocking before next weekend.";
   }
   if (q.includes("overdue") || q.includes("collection")) {
-    return "**Top overdue customers (Karachi region)**\n\n• Hafeez Center #28 — PKR 218,000 · 45 days overdue\n• Mobile Mart Multan — PKR 64,500 · 32 days overdue\n• Tech Bazaar — PKR 38,500 · 30 days overdue\n\nCombined exposure: **PKR 321,000**. I'd recommend a phone call to Hafeez Center first — they've historically settled within 48 hours of contact. Want me to draft an SMS reminder for the rest?";
+    return "**Top overdue customers (Central region)**\n\n• Riverside Plaza #28 — $2.2K · 45 days overdue\n• Mobile Mart Eastvale — $645 · 32 days overdue\n• Tech Bazaar — $385 · 30 days overdue\n\nCombined exposure: **$3.2K**. I'd recommend a phone call to Riverside Plaza first — they've historically settled within 48 hours of contact. Want me to draft an SMS reminder for the rest?";
   }
   if (q.includes("p&l") || q.includes("pnl") || q.includes("profit")) {
-    return "**P&L summary — April 2026 (Apr 1 – Apr 30)**\n\n| Metric | Amount | vs Mar |\n|---|---|---|\n| Revenue | PKR 21.8M | +12% |\n| COGS | PKR 14.2M | +9% |\n| **Gross Profit** | **PKR 7.6M** | **+18%** |\n| Operating Expenses | PKR 3.4M | +4% |\n| **Net Profit** | **PKR 4.2M** | **+24%** |\n\nGross margin improved 2.1 pts (34.9% vs 32.8%) — primarily due to better Titan T9 mix and lower freight on Volt charger imports.";
+    return "**P&L summary — April 2026 (Apr 1 – Apr 30)**\n\n| Metric | Amount | vs Mar |\n|---|---|---|\n| Revenue | $218K | +12% |\n| COGS | $142K | +9% |\n| **Gross Profit** | **$76K** | **+18%** |\n| Operating Expenses | $34K | +4% |\n| **Net Profit** | **$42K** | **+24%** |\n\nGross margin improved 2.1 pts (34.9% vs 32.8%) — primarily due to better Titan T9 mix and lower freight on Volt charger imports.";
   }
   if (q.includes("cogs") || q.includes("spike")) {
-    return "**COGS spike in March — root cause**\n\nMarch COGS was PKR 13.0M (vs PKR 10.4M in Feb, +25%). Decomposition:\n\n• **Volume**: +12% (more units sold) — accounts for ~50% of increase\n• **Freight**: PKR 380K extra inbound air-freight on Titan T15 Pro launch — accounts for ~30%\n• **FX**: USD/PKR moved from 278 → 284 between PO and GRN dates — accounts for ~15%\n• **One-off**: PKR 92K rework cost on damaged Volt 65W batch (KHI-WH-01) — ~5%\n\nThe FX hit is recoverable next quarter as we've locked the rate via forward contract for May–July.";
+    return "**COGS spike in March — root cause**\n\nMarch COGS was $130K (vs $104K in Feb, +25%). Decomposition:\n\n• **Volume**: +12% (more units sold) — accounts for ~50% of increase\n• **Freight**: $3.8K extra inbound air-freight on Titan T15 Pro launch — accounts for ~30%\n• **FX**: the supplier's currency strengthened ~2% between PO and GRN dates — accounts for ~15%\n• **One-off**: $920 rework cost on damaged Volt 65W batch (CEN-WH-01) — ~5%\n\nThe FX hit is recoverable next quarter as we've locked the rate via forward contract for May–July.";
   }
   if (q.includes("top customer") || q.includes("top 5")) {
-    return "**Top 5 customers — Q1 2026 by revenue**\n\n1. Hafeez Center #28 — PKR 1.85M (8.4% of total)\n2. Margalla Distributors — PKR 1.42M (6.5%)\n3. Mobile Zone Lahore — PKR 1.18M (5.4%)\n4. Tech Bazaar — PKR 0.98M (4.5%)\n5. Faisal Mobile Mart — PKR 0.84M (3.8%)\n\nTop 5 = **28.6% of revenue**. Concentration risk is moderate. Hafeez Center is your highest-margin account at 38% gross margin (vs 34% portfolio avg).";
+    return "**Top 5 customers — Q1 2026 by revenue**\n\n1. Riverside Plaza #28 — $18.5K (8.4% of total)\n2. Meridian Distributors — $14.2K (6.5%)\n3. Mobile Zone Northgate — $11.8K (5.4%)\n4. Tech Bazaar — $9.8K (4.5%)\n5. Fairview Mobile Mart — $8.4K (3.8%)\n\nTop 5 = **28.6% of revenue**. Concentration risk is moderate. Riverside Plaza is your highest-margin account at 38% gross margin (vs 34% portfolio avg).";
   }
   if (q.includes("compare") && (q.includes("branch") || q.includes("karachi") || q.includes("lahore"))) {
-    return "**Karachi vs Lahore — last 30 days**\n\n| KPI | Karachi | Lahore | Δ |\n|---|---|---|---|\n| Revenue | PKR 12.4M | PKR 6.85M | KHI +81% |\n| Orders | 742 | 318 | KHI +133% |\n| Avg Order | PKR 16,712 | PKR 21,540 | LHR is **+29% richer** |\n| Gross Margin | 34.2% | 36.8% | LHR +2.6 pts |\n| Returns Rate | 1.8% | 0.9% | LHR cleaner |\n\nLahore has lower volume but higher quality revenue. Worth investigating what's driving Karachi's higher returns rate.";
+    return "**Central vs Northgate — last 30 days**\n\n| KPI | Central | Northgate | Δ |\n|---|---|---|---|\n| Revenue | $124K | $68.5K | CEN +81% |\n| Orders | 742 | 318 | CEN +133% |\n| Avg Order | $167.12 | $215.4 | NGT is **+29% richer** |\n| Gross Margin | 34.2% | 36.8% | NGT +2.6 pts |\n| Returns Rate | 1.8% | 0.9% | NGT cleaner |\n\nNorthgate has lower volume but higher quality revenue. Worth investigating what's driving Central's higher returns rate.";
   }
   if (q.includes("working capital") || q.includes("tied up")) {
-    return "**Working capital — what's locked up**\n\n• **AR (Accounts Receivable)**: PKR 8.4M — DSO 42 days (target 30)\n• **Inventory**: PKR 14.2M — 187 days of stock (target 90)\n  - Of which slow-moving (>60d): PKR 2.1M\n  - Of which dead (>180d): PKR 0.84M\n• **AP (Accounts Payable)**: PKR -4.6M (negative = source of cash)\n\n**Net WC = PKR 18.0M tied up.** Quickest win: clear PKR 0.84M of dead stock via clearance. Second: tighten DSO to 35 days to release ~PKR 1.4M.";
+    return "**Working capital — what's locked up**\n\n• **AR (Accounts Receivable)**: $84K — DSO 42 days (target 30)\n• **Inventory**: $142K — 187 days of stock (target 90)\n  - Of which slow-moving (>60d): $21K\n  - Of which dead (>180d): $8.4K\n• **AP (Accounts Payable)**: -$46K (negative = source of cash)\n\n**Net WC = $180K tied up.** Quickest win: clear $8.4K of dead stock via clearance. Second: tighten DSO to 35 days to release ~$14K.";
   }
   return `Got it — let me look that up for you.\n\nBased on your data, here's what I found regarding "${question}":\n\nThis is a demo response. In production, the AI would call secure tools to query your real ERP data and return a grounded answer with charts and source links.`;
 }

@@ -20,10 +20,11 @@ export default function OpenRegisterPage() {
   const router = useRouter();
   const active = terminals.filter((t) => t.isActive);
   const [terminalCode, setTerminalCode] = React.useState(active[0]?.code ?? "");
-  const [float, setFloat] = React.useState(String(currentSession.openingFloat));
+  const [float, setFloat] = React.useState((currentSession.openingFloat / 100).toFixed(2));
   const [counting, setCounting] = React.useState(false);
 
-  const floatValue = Number(float) || 0;
+  /* The field is typed in major units; the rest of the till is minor. */
+  const floatValue = Math.round((Number(float) || 0) * 100);
   const terminal = terminals.find((t) => t.code === terminalCode);
 
   async function open(e: React.FormEvent) {
@@ -93,17 +94,17 @@ export default function OpenRegisterPage() {
                 <button
                   key={v}
                   type="button"
-                  onClick={() => setFloat(String(v))}
+                  onClick={() => setFloat((v / 100).toFixed(2))}
                   className="h-10 px-3 rounded-lg border border-slate-200 dark:border-navy-700 text-sm tabular font-medium text-navy-900 dark:text-white hover:border-brand hover:bg-brand-50 dark:hover:bg-navy-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
                 >
-                  {v.toLocaleString("en-PK")}
+                  {formatMoney(v, { decimals: 0 })}
                 </button>
               ))}
             </div>
             <p className="flex items-start gap-1.5 text-2xs text-slate-500 dark:text-slate-400 mt-2">
               <Banknote className="size-3 flex-shrink-0 mt-0.5" aria-hidden />
               Count the drawer before you enter this. Notes usually held:{" "}
-              {cashDenominations.map((d) => d.toLocaleString("en-PK")).join(" · ")}.
+              {cashDenominations.map((d) => formatMoney(d, { decimals: 0 })).join(" · ")}.
             </p>
           </div>
 

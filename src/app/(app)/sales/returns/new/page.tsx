@@ -189,8 +189,8 @@ export default function NewSalesReturnPage() {
                         <option value="CREDIT_NOTE">Credit Note (apply to next invoice)</option>
                         <option value="CASH">Cash refund</option>
                         <option value="BANK">Bank transfer</option>
-                        <option value="EASYPAISA">Easypaisa</option>
-                        <option value="JAZZCASH">JazzCash</option>
+                        <option value="EASYPAISA">WalletPay</option>
+                        <option value="JAZZCASH">PayLink</option>
                       </SelectNative>
                     </FormControl>
                     <FormMessage />

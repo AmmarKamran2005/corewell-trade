@@ -23,12 +23,12 @@ type LlmQuery = {
 };
 
 const QUERIES: LlmQuery[] = [
-  { id: 1, user: "Adnan Sheikh",   question: "Which product sold most last month?",                    intent: "SALES_INQUIRY",      provider: "Gemini", model: "gemini-1.5-pro", tokens: 842,  cost: 0.0024, flagged: false, time: "2 min ago" },
-  { id: 2, user: "Hassan Raza",  question: "Show me overdue invoices in Karachi",                    intent: "AGING_INQUIRY",      provider: "Gemini", model: "gemini-1.5-pro", tokens: 1240, cost: 0.0035, flagged: false, time: "12 min ago" },
-  { id: 3, user: "Sara Khan",    question: "Top 5 customers by revenue this quarter",                intent: "REPORT_SUMMARY",     provider: "Gemini", model: "gemini-1.5-pro", tokens: 985,  cost: 0.0028, flagged: false, time: "30 min ago" },
-  { id: 4, user: "Bilal Ahmed",  question: "Why did COGS spike in March?",                            intent: "ANOMALY_DETECTION",  provider: "Gemini", model: "gemini-1.5-pro", tokens: 1820, cost: 0.0052, flagged: true,  time: "1 hour ago" },
-  { id: 5, user: "Adnan Sheikh",   question: "Summarise this month&apos;s P&L",                          intent: "REPORT_SUMMARY",     provider: "Gemini", model: "gemini-1.5-pro", tokens: 2140, cost: 0.0061, flagged: false, time: "2 hours ago" },
-  { id: 6, user: "Fatima Sheikh",question: "Who should I call for collections today?",                intent: "RECOMMENDATION",     provider: "Gemini", model: "gemini-1.5-pro", tokens: 1480, cost: 0.0042, flagged: false, time: "3 hours ago" },
+  { id: 1, user: "Alex Hartley",   question: "Which product sold most last month?",                    intent: "SALES_INQUIRY",      provider: "Gemini", model: "gemini-1.5-pro", tokens: 842,  cost: 0.0024, flagged: false, time: "2 min ago" },
+  { id: 2, user: "Hugo Ramos",  question: "Show me overdue invoices in Central",                    intent: "AGING_INQUIRY",      provider: "Gemini", model: "gemini-1.5-pro", tokens: 1240, cost: 0.0035, flagged: false, time: "12 min ago" },
+  { id: 3, user: "Sara Doyle",    question: "Top 5 customers by revenue this quarter",                intent: "REPORT_SUMMARY",     provider: "Gemini", model: "gemini-1.5-pro", tokens: 985,  cost: 0.0028, flagged: false, time: "30 min ago" },
+  { id: 4, user: "Ben Alder",  question: "Why did COGS spike in March?",                            intent: "ANOMALY_DETECTION",  provider: "Gemini", model: "gemini-1.5-pro", tokens: 1820, cost: 0.0052, flagged: true,  time: "1 hour ago" },
+  { id: 5, user: "Alex Hartley",   question: "Summarise this month&apos;s P&L",                          intent: "REPORT_SUMMARY",     provider: "Gemini", model: "gemini-1.5-pro", tokens: 2140, cost: 0.0061, flagged: false, time: "2 hours ago" },
+  { id: 6, user: "Elena Ross",question: "Who should I call for collections today?",                intent: "RECOMMENDATION",     provider: "Gemini", model: "gemini-1.5-pro", tokens: 1480, cost: 0.0042, flagged: false, time: "3 hours ago" },
 ];
 
 export default function LlmUsagePage() {
@@ -91,7 +91,6 @@ export default function LlmUsagePage() {
             <div>
               <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">Total Cost (USD)</div>
               <div className="text-2xl tabular font-bold text-navy-900 dark:text-white mt-1">${totalCost.toFixed(2)}</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">PKR {(totalCost * 280).toFixed(0)}</div>
             </div>
             <DollarSign className="size-5 text-success" />
           </div>
@@ -114,11 +113,11 @@ export default function LlmUsagePage() {
             <h3 className="text-base font-semibold text-navy-900 dark:text-white mb-4">Top Users by Queries</h3>
             <div className="space-y-3">
               {[
-                { user: "Adnan Sheikh",    queries: 84, cost: 0.42 },
-                { user: "Hassan Raza",   queries: 56, cost: 0.28 },
-                { user: "Sara Khan",     queries: 38, cost: 0.18 },
-                { user: "Bilal Ahmed",   queries: 24, cost: 0.12 },
-                { user: "Fatima Sheikh", queries: 18, cost: 0.09 },
+                { user: "Alex Hartley",    queries: 84, cost: 0.42 },
+                { user: "Hugo Ramos",   queries: 56, cost: 0.28 },
+                { user: "Sara Doyle",     queries: 38, cost: 0.18 },
+                { user: "Ben Alder",   queries: 24, cost: 0.12 },
+                { user: "Elena Ross", queries: 18, cost: 0.09 },
               ].map((u) => (
                 <div key={u.user} className="flex items-center gap-3">
                   <Avatar initials={initials(u.user)} size="sm" />

@@ -8,6 +8,7 @@
  */
 
 import type { Product } from "@/data/products";
+import { formatMoney } from "@/lib/format";
 import {
   deliveryMethods, paymentMethods, promoCodes, retailPrice, stockPromise,
 } from "@/data/store";
@@ -107,7 +108,7 @@ export function promoIsValid(code: string, subtotal: number) {
   const promo = promoCodes.find((p) => p.code === c);
   if (!promo) return { ok: false as const, reason: "That code isn’t recognised." };
   if (subtotal < promo.minSubtotal)
-    return { ok: false as const, reason: `Spend ${promo.minSubtotal.toLocaleString("en-PK")} to use this code.` };
+    return { ok: false as const, reason: `Spend ${formatMoney(promo.minSubtotal)} to use this code.` };
   return { ok: true as const, promo };
 }
 
@@ -116,7 +117,7 @@ export function paymentUnavailableReason(code: string, total: number): string | 
   const p = paymentMethods.find((x) => x.code === code);
   if (!p) return null;
   if (p.maxOrderValue != null && total > p.maxOrderValue) {
-    return `Not available above ${p.maxOrderValue.toLocaleString("en-PK")}. Please pay online.`;
+    return `Not available above ${formatMoney(p.maxOrderValue)}. Please pay online.`;
   }
   return null;
 }

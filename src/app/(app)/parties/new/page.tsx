@@ -25,16 +25,16 @@ const Schema = z.object({
   industry: z.string().max(100).optional().or(z.literal("")),
 
   phone: z.string()
-    .min(11, "Pakistani number must be 11 digits")
-    .regex(/^(03\d{9}|\+923\d{9}|021|042|051|031)/, "Invalid Pakistan phone format"),
+    .min(11, "Number must be 10 digits")
+    .regex(/^(03\d{9}|\+923\d{9}|021|042|051|031)/, "Invalid phone number format"),
   altPhone: z.string().optional().or(z.literal("")),
   email: z.string().email("Invalid email").optional().or(z.literal("")),
 
   addressLine1: z.string().max(200).optional().or(z.literal("")),
   city: z.string().min(2, "City required").max(100),
-  province: z.enum(["Sindh", "Punjab", "KPK", "Balochistan", "Islamabad Capital", "AJK", "Gilgit-Baltistan"]),
+  province: z.enum(["South Region", "North Region", "East Region", "West Region", "Harbour District", "AJK", "Gilgit-Baltistan"]),
 
-  ntn: z.string()
+  taxId: z.string()
     .regex(/^\d{7}-\d$|^$/, "Format: 1234567-8")
     .optional().or(z.literal("")),
   strn: z.string().optional().or(z.literal("")),
@@ -68,8 +68,8 @@ export default function NewPartyPage() {
       email: "",
       addressLine1: "",
       city: "",
-      province: "Sindh",
-      ntn: "",
+      province: "South Region",
+      taxId: "",
       strn: "",
       cnic: "",
       creditLimit: 0,
@@ -157,7 +157,7 @@ export default function NewPartyPage() {
                     <FormField control={form.control} name="legalName" render={({ field }) => (
                       <FormItem className="sm:col-span-2">
                         <FormLabel required>Legal Name</FormLabel>
-                        <FormControl><Input placeholder="e.g. Hafeez Center Shop #28" {...field} /></FormControl>
+                        <FormControl><Input placeholder="e.g. Riverside Plaza Shop #28" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -216,7 +216,7 @@ export default function NewPartyPage() {
                     <FormField control={form.control} name="email" render={({ field }) => (
                       <FormItem className="sm:col-span-2">
                         <FormLabel>Email</FormLabel>
-                        <FormControl><Input type="email" placeholder="contact@example.pk" {...field} /></FormControl>
+                        <FormControl><Input type="email" placeholder="contact@example.com" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -232,14 +232,14 @@ export default function NewPartyPage() {
                     <FormField control={form.control} name="addressLine1" render={({ field }) => (
                       <FormItem className="sm:col-span-2">
                         <FormLabel>Address Line 1</FormLabel>
-                        <FormControl><Input placeholder="Shop #28, Hafeez Center, Liberty" {...field} /></FormControl>
+                        <FormControl><Input placeholder="Shop #28, Riverside Plaza, Liberty" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="city" render={({ field }) => (
                       <FormItem>
                         <FormLabel required>City</FormLabel>
-                        <FormControl><Input placeholder="Lahore" {...field} /></FormControl>
+                        <FormControl><Input placeholder="Northgate" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -248,11 +248,11 @@ export default function NewPartyPage() {
                         <FormLabel required>Province</FormLabel>
                         <FormControl>
                           <SelectNative {...field}>
-                            <option>Punjab</option>
-                            <option>Sindh</option>
-                            <option>KPK</option>
-                            <option>Balochistan</option>
-                            <option>Islamabad Capital</option>
+                            <option>North Region</option>
+                            <option>South Region</option>
+                            <option>East Region</option>
+                            <option>West Region</option>
+                            <option>Harbour District</option>
                             <option>AJK</option>
                             <option>Gilgit-Baltistan</option>
                           </SelectNative>
@@ -269,9 +269,9 @@ export default function NewPartyPage() {
                 <CardBody>
                   <h3 className="text-sm font-semibold text-navy-900 dark:text-white mb-4">Tax & Compliance</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <FormField control={form.control} name="ntn" render={({ field }) => (
+                    <FormField control={form.control} name="taxId" render={({ field }) => (
                       <FormItem>
-                        <FormLabel>NTN</FormLabel>
+                        <FormLabel>Tax ID</FormLabel>
                         <FormControl><Input placeholder="1234567-8" {...field} /></FormControl>
                         <FormDescription>National Tax Number</FormDescription>
                         <FormMessage />
@@ -287,7 +287,7 @@ export default function NewPartyPage() {
                     )} />
                     <FormField control={form.control} name="cnic" render={({ field }) => (
                       <FormItem>
-                        <FormLabel>CNIC</FormLabel>
+                        <FormLabel>National ID</FormLabel>
                         <FormControl><Input placeholder="00000-0000000-0" {...field} /></FormControl>
                         <FormDescription>For sole proprietors</FormDescription>
                         <FormMessage />
@@ -305,7 +305,7 @@ export default function NewPartyPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <FormField control={form.control} name="creditLimit" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Credit Limit (PKR)</FormLabel>
+                          <FormLabel>Credit Limit (USD)</FormLabel>
                           <FormControl><Input type="number" min={0} {...field} /></FormControl>
                           <FormMessage />
                         </FormItem>
@@ -348,9 +348,9 @@ export default function NewPartyPage() {
                         <FormLabel>Default Branch</FormLabel>
                         <FormControl>
                           <SelectNative {...field}>
-                            <option value="1">Karachi Head Office</option>
-                            <option value="2">Lahore Branch</option>
-                            <option value="3">Islamabad Branch</option>
+                            <option value="1">Central Head Office</option>
+                            <option value="2">Northgate Branch</option>
+                            <option value="3">Harbour Branch</option>
                           </SelectNative>
                         </FormControl>
                         <FormMessage />
@@ -363,9 +363,9 @@ export default function NewPartyPage() {
                           <FormControl>
                             <SelectNative {...field}>
                               <option value="">— None —</option>
-                              <option>Sara Khan</option>
-                              <option>Hassan Raza</option>
-                              <option>Bilal Ahmed</option>
+                              <option>Sara Doyle</option>
+                              <option>Hugo Ramos</option>
+                              <option>Ben Alder</option>
                             </SelectNative>
                           </FormControl>
                           <FormMessage />

@@ -57,7 +57,7 @@ export default function ExpensesPage() {
         <Card className="p-4">
           <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">Top Category</div>
           <div className="text-base tabular font-bold text-navy-900 dark:text-white mt-1">Office Rent</div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">PKR 1.20L (40%)</div>
+          <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">$1.2K (40%)</div>
         </Card>
         <Card className="p-4">
           <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">vs Last Month</div>

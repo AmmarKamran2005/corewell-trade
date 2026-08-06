@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 type Match = { bankId: number; systemId: number };
 
 const BANK_LINES = [
-  { id: 1, date: "2026-04-30", description: "INWARD TT — HAFEEZ CTR",         amount: 100000,  type: "credit" as const },
+  { id: 1, date: "2026-04-30", description: "INWARD TT — RIVERSIDE PLZ",         amount: 100000,  type: "credit" as const },
   { id: 2, date: "2026-04-29", description: "OUTWARD TT — PAK ACCESSORIES",   amount: -320000, type: "debit"  as const },
   { id: 3, date: "2026-04-29", description: "INWARD — STAR COMM",             amount: 240000,  type: "credit" as const },
   { id: 4, date: "2026-04-28", description: "BANK CHARGES — APR",             amount: -1850,   type: "debit"  as const },
@@ -29,15 +29,15 @@ const BANK_LINES = [
 ];
 
 const SYSTEM_LINES = [
-  { id: 1, date: "2026-04-30", entry: "VCH-KHI-26-0089", description: "Bank receipt — Hafeez Center #28",  amount: 100000,  type: "receipt" as const },
-  { id: 2, date: "2026-04-29", entry: "VCH-KHI-26-0088", description: "Bank payment — Pak Accessories",     amount: -320000, type: "payment" as const },
-  { id: 3, date: "2026-04-29", entry: "VCH-KHI-26-0090", description: "Bank receipt — Star Communications", amount: 240000,  type: "receipt" as const },
-  { id: 4, date: "2026-04-27", entry: "VCH-KHI-26-0091", description: "Bank receipt — Mobilink Connect",    amount: 180000,  type: "receipt" as const },
-  { id: 5, date: "2026-04-26", entry: "VCH-KHI-26-0086", description: "Cash withdrawal for petty cash",     amount: -25000,  type: "payment" as const },
+  { id: 1, date: "2026-04-30", entry: "VCH-CEN-26-0089", description: "Bank receipt — Riverside Plaza #28",  amount: 100000,  type: "receipt" as const },
+  { id: 2, date: "2026-04-29", entry: "VCH-CEN-26-0088", description: "Bank payment — Apex Accessories",     amount: -320000, type: "payment" as const },
+  { id: 3, date: "2026-04-29", entry: "VCH-CEN-26-0090", description: "Bank receipt — Star Communications", amount: 240000,  type: "receipt" as const },
+  { id: 4, date: "2026-04-27", entry: "VCH-CEN-26-0091", description: "Bank receipt — Linkline Connect",    amount: 180000,  type: "receipt" as const },
+  { id: 5, date: "2026-04-26", entry: "VCH-CEN-26-0086", description: "Cash withdrawal for petty cash",     amount: -25000,  type: "payment" as const },
 ];
 
 export default function ReconciliationPage() {
-  const [bankAccount, setBankAccount] = React.useState("HBL");
+  const [bankAccount, setBankAccount] = React.useState("Anchor");
   const [statementDate, setStatementDate] = React.useState(new Date().toISOString().slice(0, 10));
   const [openingBalance, setOpeningBalance] = React.useState(1700000);
   const [closingBalance, setClosingBalance] = React.useState(1840000);
@@ -112,9 +112,9 @@ export default function ReconciliationPage() {
             <div>
               <Label htmlFor="bank-acct">Bank Account</Label>
               <SelectNative id="bank-acct" value={bankAccount} onChange={(e) => setBankAccount(e.target.value)} className="mt-1.5">
-                <option value="HBL">HBL Bank — 1234567890</option>
-                <option value="MEEZAN">Meezan Bank — 9876543210</option>
-                <option value="UBL">UBL — 5555444433</option>
+                <option value="Anchor">Anchor Bank — 1234567890</option>
+                <option value="MEEZAN">Meridian Bank — 9876543210</option>
+                <option value="Vantage">Vantage — 5555444433</option>
               </SelectNative>
             </div>
             <div>

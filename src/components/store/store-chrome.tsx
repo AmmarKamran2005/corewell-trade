@@ -36,7 +36,7 @@ export function StoreHeader() {
         <div className="max-w-6xl mx-auto px-4 h-8 flex items-center gap-5 overflow-x-auto scrollbar-thin">
           <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
             <Truck className="size-3 text-brand-300" aria-hidden />
-            Free standard delivery over PKR 5,000
+            Free standard delivery over USD 5,000
           </span>
           <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
             <RotateCcw className="size-3 text-brand-300" aria-hidden />

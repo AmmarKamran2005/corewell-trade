@@ -21,7 +21,7 @@ import { toast } from "@/components/ui/toaster";
 const Schema = z.object({
   fullName: z.string().min(2, "Required").max(150),
   email: z.string().min(1, "Required").email("Invalid email"),
-  phone: z.string().min(11, "Pakistan number: 11 digits").regex(/^03\d{9}$/, "Format: 03XXXXXXXXX"),
+  phone: z.string().min(11, "Number: 10 digits").regex(/^03\d{9}$/, "Format: 03XXXXXXXXX"),
   employeeCode: z.string().min(2).max(20).regex(/^[A-Z0-9-]+$/, "Uppercase letters/digits/hyphens"),
   roles: z.array(z.string()).min(1, "Pick at least one role"),
   branches: z.array(z.string()).min(1, "Grant access to at least one branch"),
@@ -76,7 +76,7 @@ export default function NewUserPage() {
                     <FormField control={form.control} name="fullName" render={({ field }) => (
                       <FormItem className="sm:col-span-2">
                         <FormLabel required>Full name</FormLabel>
-                        <FormControl><Input placeholder="e.g. Hassan Raza" {...field} /></FormControl>
+                        <FormControl><Input placeholder="e.g. Hugo Ramos" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />

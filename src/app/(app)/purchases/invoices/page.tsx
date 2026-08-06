@@ -89,7 +89,7 @@ export default function PurchaseInvoicesPage() {
         </Card>
         <Card className="p-4">
           <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">Due in 7 days</div>
-          <div className="text-2xl tabular font-bold text-warning mt-1">PKR 8.4L</div>
+          <div className="text-2xl tabular font-bold text-warning mt-1">$8.4K</div>
         </Card>
       </div>
 

@@ -74,7 +74,7 @@ const o = (
   customerType,
   branch,
   branchCode,
-  warehouse: branchCode === "KHI" ? "KHI-WH-01" : branchCode === "LHR" ? "LHR-WH-01" : "ISB-WH-01",
+  warehouse: branchCode === "CEN" ? "CEN-WH-01" : branchCode === "NGT" ? "NGT-WH-01" : "HBR-WH-01",
   salesPerson,
   orderDate: date,
   deliveryDate: date,
@@ -90,21 +90,21 @@ const o = (
 });
 
 export const orders: Order[] = [
-  o(1,  "ORD-KHI-26-0142", 1,  "Hafeez Center Shop #28",   "HC", "Wholesaler",  "Karachi",   "KHI", "Sara Khan",   "2026-04-30", "DISPATCHED",  145000, "CREDIT",    "UNPAID"),
-  o(2,  "ORD-LHR-26-0089", 2,  "Mobile Zone Lahore",       "MZ", "Retailer",    "Lahore",    "LHR", "Sara Khan",   "2026-04-30", "CREDIT_HOLD", 84500,  "CREDIT",    "UNPAID", "Customer exceeded credit limit by PKR 12,400"),
-  o(3,  "ORD-KHI-26-0141", 3,  "Saddar Mobile Plaza",      "SM", "Retailer",    "Karachi",   "KHI", "Hassan Raza", "2026-04-30", "CONFIRMED",   32750,  "CREDIT",    "UNPAID"),
-  o(4,  "ORD-ISB-26-0034", 4,  "Blue Area Distributors",   "BA", "Distributor", "Islamabad", "ISB", "Bilal Ahmed", "2026-04-30", "DISPATCHED",  218000, "BANK",      "PAID"),
-  o(5,  "ORD-KHI-26-0140", 5,  "Cellular World KHI",       "CW", "Wholesaler",  "Karachi",   "KHI", "Hassan Raza", "2026-04-30", "PACKED",      56200,  "CREDIT",    "UNPAID"),
-  o(6,  "ORD-LHR-26-0088", 6,  "Faisal Mobile Mart",       "FM", "Retailer",    "Lahore",    "LHR", "Sara Khan",   "2026-04-29", "DELIVERED",   18400,  "CASH",      "PAID"),
-  o(7,  "ORD-KHI-26-0139", 8,  "Mobilink Connect Lahore",  "ML", "Wholesaler",  "Lahore",    "LHR", "Sara Khan",   "2026-04-29", "DISPATCHED",  98500,  "BANK",      "PARTIAL"),
-  o(8,  "ORD-LHR-26-0087", 9,  "Mobile Mart Multan",       "MM", "Retailer",    "Lahore",    "LHR", "Bilal Ahmed", "2026-04-29", "DELIVERED",   24600,  "EASYPAISA", "PAID"),
-  o(9,  "ORD-KHI-26-0138", 10, "Star Communications",      "SC", "Distributor", "Karachi",   "KHI", "Sara Khan",   "2026-04-29", "DELIVERED",   485000, "BANK",      "PAID"),
-  o(10, "ORD-ISB-26-0033", 12, "Margalla Distributors",    "MD", "Distributor", "Islamabad", "ISB", "Bilal Ahmed", "2026-04-28", "DELIVERED",   320000, "BANK",      "PAID"),
-  o(11, "ORD-KHI-26-0137", 7,  "Quetta Cellular",          "QC", "Retailer",    "Karachi",   "KHI", "Hassan Raza", "2026-04-28", "DELIVERED",   12400,  "JAZZCASH",  "PAID"),
-  o(12, "ORD-LHR-26-0086", 14, "Universal Mobile Sialkot", "UM", "Wholesaler",  "Lahore",    "LHR", "Sara Khan",   "2026-04-28", "DRAFT",       45200,  "CREDIT",    "UNPAID"),
-  o(13, "ORD-LHR-26-0085", 9,  "Mobile Mart Multan",       "MM", "Retailer",    "Lahore",    "LHR", "Bilal Ahmed", "2026-04-27", "CREDIT_HOLD", 38400,  "CREDIT",    "UNPAID", "Outstanding 30+ days overdue"),
-  o(14, "ORD-KHI-26-0136", 1,  "Hafeez Center Shop #28",   "HC", "Wholesaler",  "Karachi",   "KHI", "Sara Khan",   "2026-04-27", "CANCELLED",   88000,  "CREDIT",    "UNPAID"),
-  o(15, "ORD-KHI-26-0135", 5,  "Cellular World KHI",       "CW", "Wholesaler",  "Karachi",   "KHI", "Hassan Raza", "2026-04-26", "DELIVERED",   142000, "BANK",      "PAID"),
+  o(1,  "ORD-CEN-26-0142", 1,  "Riverside Plaza Shop #28",   "HC", "Wholesaler",  "Central",   "CEN", "Sara Doyle",   "2026-04-30", "DISPATCHED",  145000, "CREDIT",    "UNPAID"),
+  o(2,  "ORD-NGT-26-0089", 2,  "Mobile Zone Northgate",       "MZ", "Retailer",    "Northgate",    "NGT", "Sara Doyle",   "2026-04-30", "CREDIT_HOLD", 84500,  "CREDIT",    "UNPAID", "Customer exceeded credit limit by USD 12,400"),
+  o(3,  "ORD-CEN-26-0141", 3,  "Market Row Mobile Plaza",      "SM", "Retailer",    "Central",   "CEN", "Hugo Ramos", "2026-04-30", "CONFIRMED",   32750,  "CREDIT",    "UNPAID"),
+  o(4,  "ORD-HBR-26-0034", 4,  "Harbour Distributors",   "BA", "Distributor", "Harbour", "HBR", "Ben Alder", "2026-04-30", "DISPATCHED",  218000, "BANK",      "PAID"),
+  o(5,  "ORD-CEN-26-0140", 5,  "Cellular World Central",       "CW", "Wholesaler",  "Central",   "CEN", "Hugo Ramos", "2026-04-30", "PACKED",      56200,  "CREDIT",    "UNPAID"),
+  o(6,  "ORD-NGT-26-0088", 6,  "Fairview Mobile Mart",       "FM", "Retailer",    "Northgate",    "NGT", "Sara Doyle",   "2026-04-29", "DELIVERED",   18400,  "CASH",      "PAID"),
+  o(7,  "ORD-CEN-26-0139", 8,  "Linkline Connect Northgate",  "ML", "Wholesaler",  "Northgate",    "NGT", "Sara Doyle",   "2026-04-29", "DISPATCHED",  98500,  "BANK",      "PARTIAL"),
+  o(8,  "ORD-NGT-26-0087", 9,  "Mobile Mart Eastvale",       "MM", "Retailer",    "Northgate",    "NGT", "Ben Alder", "2026-04-29", "DELIVERED",   24600,  "EASYPAISA", "PAID"),
+  o(9,  "ORD-CEN-26-0138", 10, "Star Communications",      "SC", "Distributor", "Central",   "CEN", "Sara Doyle",   "2026-04-29", "DELIVERED",   485000, "BANK",      "PAID"),
+  o(10, "ORD-HBR-26-0033", 12, "Meridian Distributors",    "MD", "Distributor", "Harbour", "HBR", "Ben Alder", "2026-04-28", "DELIVERED",   320000, "BANK",      "PAID"),
+  o(11, "ORD-CEN-26-0137", 7,  "Brookside Cellular",          "QC", "Retailer",    "Central",   "CEN", "Hugo Ramos", "2026-04-28", "DELIVERED",   12400,  "JAZZCASH",  "PAID"),
+  o(12, "ORD-NGT-26-0086", 14, "Universal Mobile Westport", "UM", "Wholesaler",  "Northgate",    "NGT", "Sara Doyle",   "2026-04-28", "DRAFT",       45200,  "CREDIT",    "UNPAID"),
+  o(13, "ORD-NGT-26-0085", 9,  "Mobile Mart Eastvale",       "MM", "Retailer",    "Northgate",    "NGT", "Ben Alder", "2026-04-27", "CREDIT_HOLD", 38400,  "CREDIT",    "UNPAID", "Outstanding 30+ days overdue"),
+  o(14, "ORD-CEN-26-0136", 1,  "Riverside Plaza Shop #28",   "HC", "Wholesaler",  "Central",   "CEN", "Sara Doyle",   "2026-04-27", "CANCELLED",   88000,  "CREDIT",    "UNPAID"),
+  o(15, "ORD-CEN-26-0135", 5,  "Cellular World Central",       "CW", "Wholesaler",  "Central",   "CEN", "Hugo Ramos", "2026-04-26", "DELIVERED",   142000, "BANK",      "PAID"),
 ];
 
 export function getOrder(id: number) {
@@ -190,11 +190,11 @@ export type Return = {
 };
 
 export const salesReturns: Return[] = [
-  { id: 1, returnNo: "RET-KHI-26-0008", invoiceNo: "INV-KHI-26-0128", customerName: "Hafeez Center Shop #28", customerInitials: "HC", branch: "Karachi",  returnDate: "2026-04-27", reason: "Defective items",       itemCount: 2, totalAmount: 8400,  resalableQty: 0, damagedQty: 4, refundMethod: "CREDIT_NOTE", status: "POSTED" },
-  { id: 2, returnNo: "RET-LHR-26-0004", invoiceNo: "INV-LHR-26-0085", customerName: "Mobile Mart Multan",     customerInitials: "MM", branch: "Lahore",   returnDate: "2026-04-26", reason: "Wrong item shipped",     itemCount: 1, totalAmount: 1980,  resalableQty: 3, damagedQty: 0, refundMethod: "BANK",       status: "POSTED" },
-  { id: 3, returnNo: "RET-KHI-26-0007", invoiceNo: "INV-KHI-26-0114", customerName: "Saddar Mobile Plaza",    customerInitials: "SM", branch: "Karachi",  returnDate: "2026-04-25", reason: "Customer dissatisfaction", itemCount: 1, totalAmount: 980, resalableQty: 1, damagedQty: 0, refundMethod: "CASH",       status: "APPROVED" },
-  { id: 4, returnNo: "RET-ISB-26-0003", invoiceNo: "INV-ISB-26-0028", customerName: "Margalla Distributors",  customerInitials: "MD", branch: "Islamabad",returnDate: "2026-04-24", reason: "Expired stock",           itemCount: 3, totalAmount: 14200, resalableQty: 0, damagedQty: 12, refundMethod: "BANK",      status: "POSTED" },
-  { id: 5, returnNo: "RET-KHI-26-0006", invoiceNo: "INV-KHI-26-0098", customerName: "Cellular World KHI",     customerInitials: "CW", branch: "Karachi",  returnDate: "2026-04-23", reason: "Over-supplied",           itemCount: 1, totalAmount: 4200,  resalableQty: 6, damagedQty: 0, refundMethod: "CREDIT_NOTE",status: "DRAFT" },
+  { id: 1, returnNo: "RET-CEN-26-0008", invoiceNo: "INV-CEN-26-0128", customerName: "Riverside Plaza Shop #28", customerInitials: "HC", branch: "Central",  returnDate: "2026-04-27", reason: "Defective items",       itemCount: 2, totalAmount: 8400,  resalableQty: 0, damagedQty: 4, refundMethod: "CREDIT_NOTE", status: "POSTED" },
+  { id: 2, returnNo: "RET-NGT-26-0004", invoiceNo: "INV-NGT-26-0085", customerName: "Mobile Mart Eastvale",     customerInitials: "MM", branch: "Northgate",   returnDate: "2026-04-26", reason: "Wrong item shipped",     itemCount: 1, totalAmount: 1980,  resalableQty: 3, damagedQty: 0, refundMethod: "BANK",       status: "POSTED" },
+  { id: 3, returnNo: "RET-CEN-26-0007", invoiceNo: "INV-CEN-26-0114", customerName: "Market Row Mobile Plaza",    customerInitials: "SM", branch: "Central",  returnDate: "2026-04-25", reason: "Customer dissatisfaction", itemCount: 1, totalAmount: 980, resalableQty: 1, damagedQty: 0, refundMethod: "CASH",       status: "APPROVED" },
+  { id: 4, returnNo: "RET-HBR-26-0003", invoiceNo: "INV-HBR-26-0028", customerName: "Meridian Distributors",  customerInitials: "MD", branch: "Harbour",returnDate: "2026-04-24", reason: "Expired stock",           itemCount: 3, totalAmount: 14200, resalableQty: 0, damagedQty: 12, refundMethod: "BANK",      status: "POSTED" },
+  { id: 5, returnNo: "RET-CEN-26-0006", invoiceNo: "INV-CEN-26-0098", customerName: "Cellular World Central",     customerInitials: "CW", branch: "Central",  returnDate: "2026-04-23", reason: "Over-supplied",           itemCount: 1, totalAmount: 4200,  resalableQty: 6, damagedQty: 0, refundMethod: "CREDIT_NOTE",status: "DRAFT" },
 ];
 
 export const RETURN_STATUS_VARIANT: Record<ReturnStatus, "success" | "warning" | "danger" | "info" | "muted"> = {

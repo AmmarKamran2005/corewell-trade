@@ -181,14 +181,14 @@ export default function NewProductPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
                     <FormField control={form.control} name="costPrice" render={({ field }) => (
                       <FormItem>
-                        <FormLabel required>Cost Price (PKR)</FormLabel>
+                        <FormLabel required>Cost Price (USD)</FormLabel>
                         <FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="salePrice" render={({ field }) => (
                       <FormItem>
-                        <FormLabel required>Sale Price (PKR)</FormLabel>
+                        <FormLabel required>Sale Price (USD)</FormLabel>
                         <FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>

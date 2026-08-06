@@ -27,7 +27,7 @@ export default function StoreHomePage() {
             </h1>
             <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 mt-4 max-w-md leading-relaxed">
               Earbuds, power banks, chargers and cables — stocked in our own
-              warehouses and shipped the same day across Pakistan.
+              warehouses and shipped the same day across the region.
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
               <Link
@@ -135,7 +135,7 @@ export default function StoreHomePage() {
           <div className="flex-1">
             <h2 className="text-lg font-bold text-navy-900 dark:text-white">Buying for a shop?</h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 mt-1.5 max-w-xl">
-              {demoTenant.name} supplies retailers across Pakistan on trade terms
+              {demoTenant.name} supplies retailers across the region on trade terms
               and credit accounts. Wholesale pricing is a different price list on
               the same catalogue you are browsing.
             </p>

@@ -126,8 +126,8 @@ export default function ZakatPeriodsPage() {
           { name: "hijriYear",  label: "Hijri Year", type: "text", placeholder: "1448 AH", required: true, fullWidth: true },
           { name: "startDate",  label: "Start date", type: "date", required: true },
           { name: "endDate",    label: "End date",   type: "date", required: true },
-          { name: "goldRate",   label: "Gold rate (PKR / gram)",   type: "number", step: 0.01, required: true, hint: "Used for nisab calculation (87.48g)" },
-          { name: "silverRate", label: "Silver rate (PKR / gram)", type: "number", step: 0.01, required: true, hint: "Used for nisab calculation (612.36g)" },
+          { name: "goldRate",   label: "Gold rate (USD / gram)",   type: "number", step: 0.01, required: true, hint: "Used for nisab calculation (87.48g)" },
+          { name: "silverRate", label: "Silver rate (USD / gram)", type: "number", step: 0.01, required: true, hint: "Used for nisab calculation (612.36g)" },
         ]}
         defaultValues={{
           hijriYear: dialog?.p?.hijriYear ?? "",

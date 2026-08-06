@@ -104,7 +104,7 @@ export default function NewExpensePage() {
                     <FormItem><FormLabel required>Vendor</FormLabel><FormControl><Input placeholder="e.g. K-Electric" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="amount" render={({ field }) => (
-                    <FormItem><FormLabel required>Amount (PKR)</FormLabel><FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl><FormMessage /></FormItem>
+                    <FormItem><FormLabel required>Amount (USD)</FormLabel><FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="description" render={({ field }) => (
                     <FormItem className="sm:col-span-2"><FormLabel>Description</FormLabel><FormControl><Textarea rows={2} placeholder="Bill number, period, what was purchased…" {...field} /></FormControl><FormMessage /></FormItem>
@@ -122,8 +122,8 @@ export default function NewExpensePage() {
                       <SelectNative {...field}>
                         <option value="BANK">Bank Transfer</option>
                         <option value="CASH">Cash</option>
-                        <option value="EASYPAISA">Easypaisa</option>
-                        <option value="JAZZCASH">JazzCash</option>
+                        <option value="EASYPAISA">WalletPay</option>
+                        <option value="JAZZCASH">PayLink</option>
                         <option value="CHEQUE">Cheque</option>
                         <option value="PETTY_CASH">Petty Cash</option>
                       </SelectNative>

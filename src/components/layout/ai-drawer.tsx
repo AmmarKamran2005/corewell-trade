@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 
 const SUGGESTED_PROMPTS = [
   "Which product sold most last month?",
-  "Show me overdue invoices in Karachi",
+  "Show me overdue invoices in Central",
   "Summarise this month's P&L",
   "Who should I call for collections today?",
   "Why did COGS spike in March?",

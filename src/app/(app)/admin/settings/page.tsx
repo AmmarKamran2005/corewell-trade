@@ -70,16 +70,16 @@ export default function SettingsPage() {
             <CardBody>
               <h3 className="text-base font-semibold text-navy-900 dark:text-white mb-4">Company Information</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Field label="Company Name"><Input defaultValue="Nortex Pakistan" /></Field>
+                <Field label="Company Name"><Input defaultValue="Nortex Group" /></Field>
                 <Field label="Legal Name"><Input defaultValue="Nortex Trading Company (Pvt.) Ltd." /></Field>
-                <Field label="NTN"><Input defaultValue="0123456-7" /></Field>
+                <Field label="Tax ID"><Input defaultValue="0123456-7" /></Field>
                 <Field label="STRN"><Input defaultValue="32-77-8901-234-56" /></Field>
                 <Field label="Email"><Input type="email" defaultValue="info@nortex.demo" /></Field>
-                <Field label="Phone"><Input defaultValue="0300 5566778" /></Field>
+                <Field label="Phone"><Input defaultValue="555 06778" /></Field>
                 <Field label="Website"><Input defaultValue="https://www.nortex.demo" /></Field>
                 <Field label="Industry"><Input defaultValue="Mobile Accessories Distribution" /></Field>
                 <Field label="Head Office Address" className="sm:col-span-2">
-                  <textarea rows={3} className="input resize-none" defaultValue="Nortex House, Plot 42, Saddar, Karachi, Sindh, Pakistan" />
+                  <textarea rows={3} className="input resize-none" defaultValue="Nortex House, 42 Trade Park Road, Central District" />
                 </Field>
               </div>
             </CardBody>
@@ -111,7 +111,7 @@ export default function SettingsPage() {
         <TabsContent value="tax">
           <Card>
             <CardBody>
-              <h3 className="text-base font-semibold text-navy-900 dark:text-white mb-4">Tax Settings (Pakistan)</h3>
+              <h3 className="text-base font-semibold text-navy-900 dark:text-white mb-4">Tax Settings</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Default Sales Tax (%)"><Input type="number" defaultValue="18" /></Field>
                 <Field label="Default Withholding Tax (%)"><Input type="number" defaultValue="4.5" /></Field>
@@ -155,14 +155,14 @@ export default function SettingsPage() {
         <TabsContent value="integrations">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { name: "Easypaisa Business",  status: "Connected",    desc: "Mobile wallet receipts", color: "success" as const },
-              { name: "JazzCash Business",    status: "Connected",    desc: "Mobile wallet receipts", color: "success" as const },
-              { name: "Jazz BizSMS",          status: "Connected",    desc: "Primary SMS gateway",    color: "success" as const },
-              { name: "Telenor Tameer SMS",   status: "Connected",    desc: "Failover SMS gateway",   color: "success" as const },
+              { name: "WalletPay Business",  status: "Connected",    desc: "Mobile wallet receipts", color: "success" as const },
+              { name: "PayLink Business",    status: "Connected",    desc: "Mobile wallet receipts", color: "success" as const },
+              { name: "Nexa SMS",          status: "Connected",    desc: "Primary SMS gateway",    color: "success" as const },
+              { name: "Orbit SMS SMS",   status: "Connected",    desc: "Failover SMS gateway",   color: "success" as const },
               { name: "Twilio (PK route)",    status: "Disconnected", desc: "International fallback", color: "muted"   as const },
               { name: "Google Gemini",        status: "Connected",    desc: "LLM AI assistant",       color: "success" as const },
               { name: "OpenAI",               status: "Disconnected", desc: "LLM fallback",           color: "muted"   as const },
-              { name: "FBR e-Invoice",        status: "Not configured", desc: "Tax authority integration", color: "muted" as const },
+              { name: "Tax authority e-invoice",        status: "Not configured", desc: "Tax authority integration", color: "muted" as const },
             ].map((i) => (
               <Card key={i.name}>
                 <CardBody>
@@ -192,12 +192,12 @@ export default function SettingsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Time Zone">
                   <select className="input bg-white dark:bg-navy-800 dark:border-navy-700 dark:text-white">
-                    <option>Asia/Karachi (PKT, UTC+5)</option>
+                    <option>Asia/Central (PKT, UTC+5)</option>
                   </select>
                 </Field>
                 <Field label="Currency">
                   <select className="input bg-white dark:bg-navy-800 dark:border-navy-700 dark:text-white">
-                    <option>PKR — Pakistani Rupee</option>
+                    <option>USD — US Dollar</option>
                   </select>
                 </Field>
                 <Field label="Date Format">
@@ -210,7 +210,7 @@ export default function SettingsPage() {
                 <Field label="Number Format">
                   <select className="input bg-white dark:bg-navy-800 dark:border-navy-700 dark:text-white">
                     <option>International (1,000,000)</option>
-                    <option>Pakistani lakhs/crores (10,00,000)</option>
+                    <option>Local lakhs/crores (10,00,000)</option>
                   </select>
                 </Field>
                 <Field label="Week Start">
@@ -221,7 +221,7 @@ export default function SettingsPage() {
                 </Field>
                 <Field label="Fiscal Year Starts">
                   <select className="input bg-white dark:bg-navy-800 dark:border-navy-700 dark:text-white">
-                    <option>July (Pakistan standard)</option>
+                    <option>July (financial year start)</option>
                     <option>January</option>
                   </select>
                 </Field>

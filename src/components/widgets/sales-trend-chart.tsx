@@ -48,9 +48,7 @@ export function SalesTrendChart() {
             tick={{ fill: tickColor, fontSize: 11, fontFamily: "JetBrains Mono" }}
             axisLine={false}
             tickLine={false}
-            tickFormatter={(v) =>
-              v >= 100000 ? `${(v / 100000).toFixed(1)}L` : `${(v / 1000).toFixed(0)}K`
-            }
+            tickFormatter={(v) => formatCompact(v)}
           />
           <Tooltip
             contentStyle={{

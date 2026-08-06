@@ -11,15 +11,16 @@ import { Badge, StatusPill } from "@/components/ui/badge";
 import { EmptyState } from "@/components/ui/empty-state";
 import { ConfirmDialog } from "@/components/dialogs/confirm-dialog";
 import { toast } from "@/components/ui/toaster";
+import { formatMoney } from "@/lib/format";
 
 const SMS_DATA = [
-  { id: 1, templateCode: "ORDER_DISPATCHED",     to: "0300 4567890", toName: "Hafeez Center #28", body: "Dear Hafeez Center #28, your order ORD-KHI-26-0142 has been dispatched. Invoice: INV-KHI-26-0142", status: "DELIVERED", gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "2026-04-30 11:42 AM", deliveredAt: "2026-04-30 11:42 AM", attempts: 1, providerMsgId: "JAZZ-998877665544" },
-  { id: 2, templateCode: "INVOICE_ISSUED",       to: "0345 6789012", toName: "Margalla Distrib.",  body: "Dear customer, invoice INV-ISB-26-0034 of PKR 218,000 issued. Due: 30-May",                  status: "DELIVERED", gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "2026-04-30 11:35 AM", deliveredAt: "2026-04-30 11:36 AM", attempts: 1, providerMsgId: "JAZZ-998877665545" },
-  { id: 3, templateCode: "PAYMENT_RECEIVED",     to: "0300 4567890", toName: "Hafeez Center #28", body: "Thank you! Payment of PKR 100,000 received against INV-128.",                                  status: "DELIVERED", gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "2026-04-29 02:14 PM", deliveredAt: "2026-04-29 02:14 PM", attempts: 1, providerMsgId: "JAZZ-998877665546" },
-  { id: 4, templateCode: "PAYMENT_OVERDUE",      to: "0321 1234567", toName: "Mobile Zone Lahore", body: "Reminder: Invoice INV-LHR-26-0072 of PKR 38,500 is overdue by 30 days. Please pay urgently.", status: "DELIVERED", gateway: "Telenor Tameer", cost: 1.5,  sentAt: "2026-04-28 09:00 AM", deliveredAt: "2026-04-28 09:00 AM", attempts: 1, providerMsgId: "TLNR-1122334455" },
-  { id: 5, templateCode: "ORDER_CONFIRMED",      to: "0322 9988776", toName: "Tech Bazaar",        body: "Order confirmed. Will be dispatched in 24 hours.",                                            status: "SENT",      gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "2026-04-30 12:15 PM", deliveredAt: null,             attempts: 1, providerMsgId: "JAZZ-998877665547" },
-  { id: 6, templateCode: "PAYMENT_DUE_TOMORROW", to: "0334 6677889", toName: "Mobile Mart Multan", body: "Reminder: Invoice INV-MM-024 of PKR 64,500 is due tomorrow.",                                 status: "FAILED",    gateway: "Jazz BizSMS",  cost: 0,    sentAt: "2026-04-30 09:00 AM", deliveredAt: null,             attempts: 3, providerMsgId: null, failureReason: "Recipient number invalid (PTA blocked)" },
-  { id: 7, templateCode: "ORDER_DELIVERED",      to: "0322 3344556", toName: "Faisal Mobile Mart", body: "Your order ORD-LHR-26-0088 has been delivered. Thank you for your business!",                 status: "DELIVERED", gateway: "Telenor Tameer", cost: 1.5,  sentAt: "2026-04-29 04:30 PM", deliveredAt: "2026-04-29 04:30 PM", attempts: 1, providerMsgId: "TLNR-1122334456" },
+  { id: 1, templateCode: "ORDER_DISPATCHED",     to: "555 07890", toName: "Riverside Plaza #28", body: "Dear Riverside Plaza #28, your order ORD-CEN-26-0142 has been dispatched. Invoice: INV-CEN-26-0142", status: "DELIVERED", gateway: "Nexa SMS",  cost: 1.2,  sentAt: "2026-04-30 11:42 AM", deliveredAt: "2026-04-30 11:42 AM", attempts: 1, providerMsgId: "NEXA-998877665544" },
+  { id: 2, templateCode: "INVOICE_ISSUED",       to: "555 09012", toName: "Meridian Distrib.",  body: "Dear customer, invoice INV-HBR-26-0034 of USD 218,000 issued. Due: 30-May",                  status: "DELIVERED", gateway: "Nexa SMS",  cost: 1.2,  sentAt: "2026-04-30 11:35 AM", deliveredAt: "2026-04-30 11:36 AM", attempts: 1, providerMsgId: "NEXA-998877665545" },
+  { id: 3, templateCode: "PAYMENT_RECEIVED",     to: "555 07890", toName: "Riverside Plaza #28", body: "Thank you! Payment of USD 100,000 received against INV-128.",                                  status: "DELIVERED", gateway: "Nexa SMS",  cost: 1.2,  sentAt: "2026-04-29 02:14 PM", deliveredAt: "2026-04-29 02:14 PM", attempts: 1, providerMsgId: "NEXA-998877665546" },
+  { id: 4, templateCode: "PAYMENT_OVERDUE",      to: "555 04567", toName: "Mobile Zone Northgate", body: "Reminder: Invoice INV-NGT-26-0072 of USD 38,500 is overdue by 30 days. Please pay urgently.", status: "DELIVERED", gateway: "Orbit SMS", cost: 1.5,  sentAt: "2026-04-28 09:00 AM", deliveredAt: "2026-04-28 09:00 AM", attempts: 1, providerMsgId: "ORBT-1122334455" },
+  { id: 5, templateCode: "ORDER_CONFIRMED",      to: "555 08776", toName: "Tech Bazaar",        body: "Order confirmed. Will be dispatched in 24 hours.",                                            status: "SENT",      gateway: "Nexa SMS",  cost: 1.2,  sentAt: "2026-04-30 12:15 PM", deliveredAt: null,             attempts: 1, providerMsgId: "NEXA-998877665547" },
+  { id: 6, templateCode: "PAYMENT_DUE_TOMORROW", to: "555 07889", toName: "Mobile Mart Eastvale", body: "Reminder: Invoice INV-MM-024 of USD 64,500 is due tomorrow.",                                 status: "FAILED",    gateway: "Nexa SMS",  cost: 0,    sentAt: "2026-04-30 09:00 AM", deliveredAt: null,             attempts: 3, providerMsgId: null, failureReason: "Recipient number invalid (carrier blocked)" },
+  { id: 7, templateCode: "ORDER_DELIVERED",      to: "555 04556", toName: "Fairview Mobile Mart", body: "Your order ORD-NGT-26-0088 has been delivered. Thank you for your business!",                 status: "DELIVERED", gateway: "Orbit SMS", cost: 1.5,  sentAt: "2026-04-29 04:30 PM", deliveredAt: "2026-04-29 04:30 PM", attempts: 1, providerMsgId: "ORBT-1122334456" },
 ];
 
 const STATUS_VARIANT = { QUEUED: "warning", SENT: "info", DELIVERED: "success", FAILED: "danger" } as const;
@@ -139,7 +140,7 @@ export default function SMSDetailPage() {
                 <Meta label="Sent" icon={Calendar} value={sms.sentAt} />
                 {sms.deliveredAt && <Meta label="Delivered" icon={CheckCircle2} value={sms.deliveredAt} />}
                 <Meta label="Attempts" value={<span className="tabular">{sms.attempts}</span>} />
-                <Meta label="Cost" value={<span className="tabular">PKR {totalCost.toFixed(2)}</span>} />
+                <Meta label="Cost" value={<span className="tabular">{formatMoney(totalCost)}</span>} />
                 {sms.providerMsgId && <Meta label="Provider ID" value={<span className="tabular text-2xs">{sms.providerMsgId}</span>} />}
               </dl>
             </CardBody>

@@ -117,7 +117,7 @@ export default function NewPurchaseReturnPage() {
                   <FormItem><FormLabel required>Detailed notes</FormLabel><FormControl><Textarea rows={3} placeholder="Describe what's being returned and why" {...field} /></FormControl><FormMessage /></FormItem>
                 )} />
                 <FormField control={form.control} name="totalAmount" render={({ field }) => (
-                  <FormItem><FormLabel required>Return amount (PKR)</FormLabel><FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl><FormMessage /></FormItem>
+                  <FormItem><FormLabel required>Return amount (USD)</FormLabel><FormControl><Input type="number" step="0.01" min={0} {...field} /></FormControl><FormMessage /></FormItem>
                 )} />
               </div>
             </CardBody>

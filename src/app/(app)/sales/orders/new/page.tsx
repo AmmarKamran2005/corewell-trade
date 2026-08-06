@@ -124,7 +124,7 @@ export default function NewOrderPage() {
         description: "Customer credit limit exceeded — accountant override needed.",
       });
     } else {
-      toast.success("Order submitted", { description: `Order ORD-KHI-26-0143 of ${formatMoney(total)} created.` });
+      toast.success("Order submitted", { description: `Order ORD-CEN-26-0143 of ${formatMoney(total)} created.` });
     }
     router.push("/sales/orders");
   }
@@ -302,8 +302,8 @@ export default function NewOrderPage() {
                             <option value="CREDIT">Credit (NET 30)</option>
                             <option value="CASH">Cash</option>
                             <option value="BANK">Bank Transfer</option>
-                            <option value="EASYPAISA">Easypaisa</option>
-                            <option value="JAZZCASH">JazzCash</option>
+                            <option value="EASYPAISA">WalletPay</option>
+                            <option value="JAZZCASH">PayLink</option>
                           </SelectNative>
                         </FormControl>
                         <FormMessage />

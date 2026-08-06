@@ -168,7 +168,7 @@ export default function SupplierLedgerPage() {
                 </div>
                 <div className="text-xs text-slate-600 dark:text-slate-300 space-y-1">
                   <div>Terms <span className="font-medium text-navy-900 dark:text-white">{supplier.creditDays} days</span></div>
-                  <div>NTN <span className="tabular font-medium text-navy-900 dark:text-white">{supplier.ntn ?? "—"}</span></div>
+                  <div>Tax ID <span className="tabular font-medium text-navy-900 dark:text-white">{supplier.taxId ?? "—"}</span></div>
                 </div>
                 <Badge variant={supplier.isActive ? "success" : "muted"}>
                   {supplier.isActive ? "Active" : "Inactive"}

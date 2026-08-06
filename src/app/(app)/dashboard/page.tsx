@@ -141,9 +141,9 @@ export default function DashboardPage() {
           delta={{ value: dashboardStats.collections.deltaPercent }}
           footer={
             <>
-              Cash <span className="tabular text-navy-900 dark:text-white">1.2L</span> · Bank{" "}
-              <span className="tabular text-navy-900 dark:text-white">1.8L</span> · Wallet{" "}
-              <span className="tabular text-navy-900 dark:text-white">15K</span>
+              Cash <span className="tabular text-navy-900 dark:text-white">$1.2K</span> · Bank{" "}
+              <span className="tabular text-navy-900 dark:text-white">$1.8K</span> · Wallet{" "}
+              <span className="tabular text-navy-900 dark:text-white">$150</span>
             </>
           }
         />
@@ -256,7 +256,7 @@ export default function DashboardPage() {
                   Total Revenue
                 </div>
                 <div className="text-2xl font-bold tabular text-navy-900 dark:text-white mt-1">
-                  PKR 2.18 Cr
+                  $218.0K
                 </div>
               </div>
               <div>
@@ -272,7 +272,7 @@ export default function DashboardPage() {
                   Avg Order
                 </div>
                 <div className="text-2xl font-bold tabular text-navy-900 dark:text-white mt-1">
-                  17.5K
+                  $175
                 </div>
               </div>
             </div>
@@ -570,7 +570,7 @@ export default function DashboardPage() {
                       {o.branch}
                     </td>
                     <td className="px-4 py-3 text-right text-sm tabular font-semibold text-navy-900 dark:text-white">
-                      {formatNumber(o.amount).replace(/^/, "PKR ")}
+                      {formatMoney(o.amount, { decimals: 0 })}
                     </td>
                     <td className="px-4 py-3">
                       <StatusPill

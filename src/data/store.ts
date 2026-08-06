@@ -101,7 +101,7 @@ export type DeliveryMethod = {
 export const deliveryMethods: DeliveryMethod[] = [
   { code: "STANDARD", name: "Standard delivery", eta: "3–5 working days", fee: 250,  freeOver: 5000, note: "Nationwide courier, tracked" },
   { code: "EXPRESS",  name: "Express delivery",  eta: "1–2 working days", fee: 650,  freeOver: null, note: "Next-day in major cities" },
-  { code: "PICKUP",   name: "Collect in store",  eta: "Ready in 2 hours", fee: 0,    freeOver: null, note: "Karachi · Lahore · Islamabad counters" },
+  { code: "PICKUP",   name: "Collect in store",  eta: "Ready in 2 hours", fee: 0,    freeOver: null, note: "Central · Northgate · Harbour counters" },
 ];
 
 export type PaymentMethod = {
@@ -115,8 +115,8 @@ export type PaymentMethod = {
 
 export const paymentMethods: PaymentMethod[] = [
   { code: "CARD",      name: "Debit / credit card", note: "Secure checkout",              surcharge: 0,   maxOrderValue: null },
-  { code: "EASYPAISA", name: "Easypaisa",           note: "Pay from your mobile wallet",  surcharge: 0,   maxOrderValue: null },
-  { code: "JAZZCASH",  name: "JazzCash",            note: "Pay from your mobile wallet",  surcharge: 0,   maxOrderValue: null },
+  { code: "EASYPAISA", name: "WalletPay",           note: "Pay from your mobile wallet",  surcharge: 0,   maxOrderValue: null },
+  { code: "JAZZCASH",  name: "PayLink",            note: "Pay from your mobile wallet",  surcharge: 0,   maxOrderValue: null },
   { code: "COD",       name: "Cash on delivery",    note: "Pay the rider on arrival",     surcharge: 150, maxOrderValue: 25000 },
 ];
 
@@ -225,32 +225,32 @@ const ol = (productId: number, qty: number, extra: Partial<OnlineOrderLine> = {}
 export const onlineOrders: OnlineOrder[] = [
   {
     id: 1, orderNo: "NX-ON-26-1043", placedAt: "2026-05-02T09:21:00",
-    customerName: "Hira Siddiqui", email: "hira.s@example.demo", phone: "0301 2233445",
-    address: "Flat 4B, Seaview Apartments, Clifton Block 2", city: "Karachi",
+    customerName: "Hana Sorel", email: "hira.s@example.demo", phone: "555 03445",
+    address: "Flat 4B, Seaview Apartments, Clifton Block 2", city: "Central",
     deliveryCode: "EXPRESS", paymentCode: "CARD", state: "PICKING", trackingNo: null,
     subtotal: 6_460, deliveryFee: 650, discount: 0, total: 7_110,
     lines: [ol(1, 2), ol(19, 3)],
   },
   {
     id: 2, orderNo: "NX-ON-26-1042", placedAt: "2026-05-01T18:44:00",
-    customerName: "Usman Tariq", email: "usman.t@example.demo", phone: "0333 9988776",
-    address: "House 22, Street 7, DHA Phase 5", city: "Lahore",
+    customerName: "Oscar Tarrant", email: "usman.t@example.demo", phone: "555 08776",
+    address: "House 22, Street 7, DHA Phase 5", city: "Northgate",
     deliveryCode: "STANDARD", paymentCode: "COD", state: "DISPATCHED", trackingNo: "TCS-884120397",
     subtotal: 5_240, deliveryFee: 0, discount: 524, total: 4_866,
     lines: [ol(12, 1), ol(16, 2, { serials: ["NX-SPK-2026-004417"] })],
   },
   {
     id: 3, orderNo: "NX-ON-26-1041", placedAt: "2026-04-30T12:05:00",
-    customerName: "Ayesha Nawaz", email: "ayesha.n@example.demo", phone: "0345 1122334",
-    address: "Office 12, Blue Area Plaza", city: "Islamabad",
+    customerName: "Alicia Navarro", email: "ayesha.n@example.demo", phone: "555 02334",
+    address: "Office 12, Harbour Quarter Plaza", city: "Harbour",
     deliveryCode: "PICKUP", paymentCode: "EASYPAISA", state: "DELIVERED", trackingNo: null,
     subtotal: 2_930, deliveryFee: 0, discount: 0, total: 2_930,
     lines: [ol(7, 1)],
   },
   {
     id: 4, orderNo: "NX-ON-26-1040", placedAt: "2026-04-29T15:12:00",
-    customerName: "Bilal Qureshi", email: "bilal.q@example.demo", phone: "0312 4455667",
-    address: "Shop 8, Hafeez Centre", city: "Lahore",
+    customerName: "Ben Castell", email: "bilal.q@example.demo", phone: "555 05667",
+    address: "Shop 8, Riverside Plaza", city: "Northgate",
     deliveryCode: "STANDARD", paymentCode: "CARD", state: "PACKED", trackingNo: null,
     subtotal: 9_180, deliveryFee: 0, discount: 0, total: 9_180,
     lines: [ol(3, 2), ol(9, 1, { backordered: 1 })],
@@ -259,11 +259,11 @@ export const onlineOrders: OnlineOrder[] = [
 
 /** The signed-in shopper on the storefront side of the demo. */
 export const storeCustomer = {
-  name: "Hira Siddiqui",
+  name: "Hana Sorel",
   email: "hira.s@example.demo",
-  phone: "0301 2233445",
+  phone: "555 03445",
   address: "Flat 4B, Seaview Apartments, Clifton Block 2",
-  city: "Karachi",
+  city: "Central",
 };
 
 /* ─────────────────── Serialised goods & backorders ──────────────── */
@@ -298,19 +298,19 @@ export type Backorder = {
 
 export const backorders: Backorder[] = [
   {
-    id: 1, orderNo: "NX-ON-26-1040", customerName: "Bilal Qureshi",
+    id: 1, orderNo: "NX-ON-26-1040", customerName: "Ben Castell",
     productId: 9, sku: "NX-PWX-MAGSAFE", name: "Nortex PowerX MagSafe 5000mAh Wireless",
     qty: 1, raisedAt: "2026-04-29",
-    expectedFromPo: "PO-KHI-26-0042", expectedDate: "2026-05-15",
+    expectedFromPo: "PO-CEN-26-0042", expectedDate: "2026-05-15",
   },
   {
-    id: 2, orderNo: "NX-ON-26-1038", customerName: "Sana Farooq",
+    id: 2, orderNo: "NX-ON-26-1038", customerName: "Sonia Faro",
     productId: 14, sku: "NX-VSP-PRO-X1", name: "Nortex VSP Pro X1 Soundbar 30W",
     qty: 2, raisedAt: "2026-04-27",
-    expectedFromPo: "PO-KHI-26-0041", expectedDate: "2026-05-12",
+    expectedFromPo: "PO-CEN-26-0041", expectedDate: "2026-05-12",
   },
   {
-    id: 3, orderNo: "NX-ON-26-1037", customerName: "Kamran Javed",
+    id: 3, orderNo: "NX-ON-26-1037", customerName: "Karl Jensen",
     productId: 20, sku: "NX-VR-OTG-TC", name: "Nortex VR OTG Adapter Type-C",
     qty: 3, raisedAt: "2026-04-26",
     expectedFromPo: null, expectedDate: null,

@@ -51,7 +51,7 @@ export default function ProductDetailPage() {
 
   /* Stock per warehouse (mock split) */
   const stockByWh = warehouses
-    .filter((w) => w.code !== "KHI-WH-02")
+    .filter((w) => w.code !== "CEN-WH-02")
     .map((w, i) => ({
       id: w.id,
       warehouse: w.name,
@@ -64,11 +64,11 @@ export default function ProductDetailPage() {
 
   /* Mock recent movements */
   const movements = [
-    { id: 1, date: "2026-04-30", type: "SALE",         qty: -12, ref: "ORD-KHI-26-0142", warehouse: "KHI-WH-01", balance: product.totalStock },
-    { id: 2, date: "2026-04-29", type: "PURCHASE",     qty: 240, ref: "GRN-KHI-26-0089", warehouse: "KHI-WH-01", balance: product.totalStock + 12 },
-    { id: 3, date: "2026-04-28", type: "SALE",         qty: -24, ref: "ORD-LHR-26-0088", warehouse: "LHR-WH-01", balance: product.totalStock - 228 },
-    { id: 4, date: "2026-04-25", type: "TRANSFER_OUT", qty: -50, ref: "TRF-KHI-26-0012", warehouse: "KHI-WH-01", balance: product.totalStock - 204 },
-    { id: 5, date: "2026-04-25", type: "TRANSFER_IN",  qty: 50,  ref: "TRF-KHI-26-0012", warehouse: "LHR-WH-01", balance: product.totalStock - 154 },
+    { id: 1, date: "2026-04-30", type: "SALE",         qty: -12, ref: "ORD-CEN-26-0142", warehouse: "CEN-WH-01", balance: product.totalStock },
+    { id: 2, date: "2026-04-29", type: "PURCHASE",     qty: 240, ref: "GRN-CEN-26-0089", warehouse: "CEN-WH-01", balance: product.totalStock + 12 },
+    { id: 3, date: "2026-04-28", type: "SALE",         qty: -24, ref: "ORD-NGT-26-0088", warehouse: "NGT-WH-01", balance: product.totalStock - 228 },
+    { id: 4, date: "2026-04-25", type: "TRANSFER_OUT", qty: -50, ref: "TRF-CEN-26-0012", warehouse: "CEN-WH-01", balance: product.totalStock - 204 },
+    { id: 5, date: "2026-04-25", type: "TRANSFER_IN",  qty: 50,  ref: "TRF-CEN-26-0012", warehouse: "NGT-WH-01", balance: product.totalStock - 154 },
   ];
 
   const stockColumns: Column<(typeof stockByWh)[number]>[] = [

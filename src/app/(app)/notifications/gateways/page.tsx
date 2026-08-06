@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "@/components/ui/toaster";
+import { formatMoney } from "@/lib/format";
 
 type Gateway = {
   id: number;
@@ -27,8 +28,8 @@ type Gateway = {
 };
 
 const INITIAL_GATEWAYS: Gateway[] = [
-  { id: 1, code: "JAZZ_BIZSMS",  name: "Jazz BizSMS",         priority: 1, maxPerMin: 300, sentToday: 84,  cost: 1.20, isHealthy: true,  isActive: true,  lastCheck: "2 min ago", masking: "Nortex" },
-  { id: 2, code: "TELENOR_TAMEER", name: "Telenor Tameer",     priority: 2, maxPerMin: 250, sentToday: 42,  cost: 1.50, isHealthy: true,  isActive: true,  lastCheck: "5 min ago", masking: "Nortex" },
+  { id: 1, code: "JAZZ_BIZSMS",  name: "Nexa SMS",         priority: 1, maxPerMin: 300, sentToday: 84,  cost: 1.20, isHealthy: true,  isActive: true,  lastCheck: "2 min ago", masking: "Nortex" },
+  { id: 2, code: "TELENOR_TAMEER", name: "Orbit SMS",     priority: 2, maxPerMin: 250, sentToday: 42,  cost: 1.50, isHealthy: true,  isActive: true,  lastCheck: "5 min ago", masking: "Nortex" },
   { id: 3, code: "TWILIO_PK",    name: "Twilio (PK route)",   priority: 3, maxPerMin: 100, sentToday: 8,   cost: 4.50, isHealthy: true,  isActive: true,  lastCheck: "10 min ago", masking: "Nortex" },
   { id: 4, code: "VEEVO",        name: "Veevo SMS",            priority: 4, maxPerMin: 200, sentToday: 0,   cost: 0.95, isHealthy: false, isActive: false, lastCheck: "1 hour ago", masking: "Nortex" },
 ];
@@ -45,7 +46,7 @@ export default function GatewaysPage() {
       setGateways((gs) => gs.map((g) => g.id === id ? { ...g, lastCheck: "just now", isHealthy: g.isActive ? true : g.isHealthy } : g));
       setChecking(null);
       const g = gateways.find((x) => x.id === id);
-      toast.success(`${g?.name}: ${g?.isActive ? "Healthy" : "Disconnected"}`, { description: g?.isActive ? `Latency 124 ms · Balance: PKR 12,400` : "Cannot reach gateway. Re-enter credentials." });
+      toast.success(`${g?.name}: ${g?.isActive ? "Healthy" : "Disconnected"}`, { description: g?.isActive ? `Latency 124 ms · Balance: $124.00` : "Cannot reach gateway. Re-enter credentials." });
     }, 1100);
   }
 
@@ -114,7 +115,7 @@ export default function GatewaysPage() {
                   </div>
                   <div>
                     <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">Per SMS</div>
-                    <div className="text-lg tabular font-bold text-navy-900 dark:text-white mt-1">PKR {g.cost.toFixed(2)}</div>
+                    <div className="text-lg tabular font-bold text-navy-900 dark:text-white mt-1">{formatMoney(g.cost)}</div>
                   </div>
                   <div>
                     <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">Limit</div>
@@ -182,7 +183,7 @@ function ConfigureGatewayDialog({
             </div>
           </div>
           <div>
-            <Label htmlFor="cost">Cost per SMS (PKR)</Label>
+            <Label htmlFor="cost">Cost per SMS</Label>
             <Input id="cost" type="number" step="0.01" value={draft.cost} onChange={(e) => setDraft({ ...draft, cost: Number(e.target.value) })} className="mt-1.5" />
           </div>
           <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-navy-700">

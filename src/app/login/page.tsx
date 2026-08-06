@@ -45,7 +45,7 @@ export default function LoginPage() {
       return;
     }
 
-    toast.success("Welcome back, Adnan!", { description: "Signed in to Corewell Trade successfully." });
+    toast.success("Welcome back, Alex!", { description: "Signed in to Corewell Trade successfully." });
     router.push("/dashboard");
   }
 
@@ -236,7 +236,7 @@ export default function LoginPage() {
             <div>
               <div className="text-3xl xl:text-4xl font-bold tabular text-brand-300">3+</div>
               <div className="text-xs text-slate-400 uppercase tracking-wider mt-1.5">Branches</div>
-              <div className="text-sm text-slate-300 mt-1 leading-snug">Karachi, Lahore, Islamabad — branch-aware accounting</div>
+              <div className="text-sm text-slate-300 mt-1 leading-snug">Central, Northgate, Harbour — branch-aware accounting</div>
             </div>
             <div>
               <div className="text-3xl xl:text-4xl font-bold tabular text-brand-300">100%</div>

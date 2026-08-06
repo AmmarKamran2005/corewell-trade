@@ -20,8 +20,8 @@ import { cn } from "@/lib/utils";
 const PAYMENT_METHODS = [
   { value: "CASH",      label: "Cash",         icon: Banknote },
   { value: "BANK",      label: "Bank Transfer", icon: Landmark },
-  { value: "EASYPAISA", label: "Easypaisa",    icon: Smartphone },
-  { value: "JAZZCASH",  label: "JazzCash",     icon: Smartphone },
+  { value: "EASYPAISA", label: "WalletPay",    icon: Smartphone },
+  { value: "JAZZCASH",  label: "PayLink",     icon: Smartphone },
   { value: "CHEQUE",    label: "Cheque",       icon: Building2 },
 ] as const;
 
@@ -168,7 +168,7 @@ export function RecordPaymentDialog({
                 name="amount"
                 render={({ field }) => (
                   <FormItem className="mb-4">
-                    <FormLabel required>Amount (PKR)</FormLabel>
+                    <FormLabel required>Amount (USD)</FormLabel>
                     <FormControl>
                       <Input type="number" step="0.01" {...field} />
                     </FormControl>
@@ -206,9 +206,9 @@ export function RecordPaymentDialog({
                       <FormControl>
                         <SelectNative {...field}>
                           <option value="">— Select bank account —</option>
-                          <option value="HBL">HBL Bank</option>
-                          <option value="MEEZAN">Meezan Bank</option>
-                          <option value="UBL">UBL</option>
+                          <option value="Anchor">Anchor Bank</option>
+                          <option value="MEEZAN">Meridian Bank</option>
+                          <option value="Vantage">Vantage</option>
                         </SelectNative>
                       </FormControl>
                       <FormMessage />

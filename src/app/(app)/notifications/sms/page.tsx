@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge, StatusPill } from "@/components/ui/badge";
 import { DataTable, type Column } from "@/components/ui/data-table";
 import { FilterBar } from "@/components/ui/filter-bar";
+import { formatMoney } from "@/lib/format";
 
 type SMS = {
   id: number;
@@ -22,13 +23,13 @@ type SMS = {
 };
 
 const SMS_DATA: SMS[] = [
-  { id: 1, templateCode: "ORDER_DISPATCHED",     to: "0300 4567890", toName: "Hafeez Center #28", body: "Dear Hafeez Center #28, your order ORD-KHI-26-0142 has been dispatched. Invoice: INV-KHI-26-0142", status: "DELIVERED", gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "30 Apr · 11:42 AM" },
-  { id: 2, templateCode: "INVOICE_ISSUED",       to: "0345 6789012", toName: "Margalla Distrib.",  body: "Dear customer, invoice INV-ISB-26-0034 of PKR 218,000 issued. Due: 30-May",                  status: "DELIVERED", gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "30 Apr · 11:35 AM" },
-  { id: 3, templateCode: "PAYMENT_RECEIVED",     to: "0300 4567890", toName: "Hafeez Center #28", body: "Thank you! Payment of PKR 100,000 received against INV-128.",                                  status: "DELIVERED", gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "29 Apr · 02:14 PM" },
-  { id: 4, templateCode: "PAYMENT_OVERDUE",      to: "0321 1234567", toName: "Mobile Zone Lahore", body: "Reminder: Invoice INV-LHR-26-0072 of PKR 38,500 is overdue by 30 days. Please pay urgently.", status: "DELIVERED", gateway: "Telenor Tameer", cost: 1.5,  sentAt: "28 Apr · 09:00 AM" },
-  { id: 5, templateCode: "ORDER_CONFIRMED",      to: "0322 9988776", toName: "Tech Bazaar",        body: "Order confirmed. Will be dispatched in 24 hours.",                                            status: "SENT",      gateway: "Jazz BizSMS",  cost: 1.2,  sentAt: "30 Apr · 12:15 PM" },
-  { id: 6, templateCode: "PAYMENT_DUE_TOMORROW", to: "0334 6677889", toName: "Mobile Mart Multan", body: "Reminder: Invoice INV-MM-024 of PKR 64,500 is due tomorrow.",                                 status: "FAILED",    gateway: "Jazz BizSMS",  cost: 0,    sentAt: "30 Apr · 09:00 AM" },
-  { id: 7, templateCode: "ORDER_DELIVERED",      to: "0322 3344556", toName: "Faisal Mobile Mart", body: "Your order ORD-LHR-26-0088 has been delivered. Thank you for your business!",                 status: "DELIVERED", gateway: "Telenor Tameer", cost: 1.5,  sentAt: "29 Apr · 04:30 PM" },
+  { id: 1, templateCode: "ORDER_DISPATCHED",     to: "555 07890", toName: "Riverside Plaza #28", body: "Dear Riverside Plaza #28, your order ORD-CEN-26-0142 has been dispatched. Invoice: INV-CEN-26-0142", status: "DELIVERED", gateway: "Nexa SMS",  cost: 1.2,  sentAt: "30 Apr · 11:42 AM" },
+  { id: 2, templateCode: "INVOICE_ISSUED",       to: "555 09012", toName: "Meridian Distrib.",  body: "Dear customer, invoice INV-HBR-26-0034 of USD 218,000 issued. Due: 30-May",                  status: "DELIVERED", gateway: "Nexa SMS",  cost: 1.2,  sentAt: "30 Apr · 11:35 AM" },
+  { id: 3, templateCode: "PAYMENT_RECEIVED",     to: "555 07890", toName: "Riverside Plaza #28", body: "Thank you! Payment of USD 100,000 received against INV-128.",                                  status: "DELIVERED", gateway: "Nexa SMS",  cost: 1.2,  sentAt: "29 Apr · 02:14 PM" },
+  { id: 4, templateCode: "PAYMENT_OVERDUE",      to: "555 04567", toName: "Mobile Zone Northgate", body: "Reminder: Invoice INV-NGT-26-0072 of USD 38,500 is overdue by 30 days. Please pay urgently.", status: "DELIVERED", gateway: "Orbit SMS", cost: 1.5,  sentAt: "28 Apr · 09:00 AM" },
+  { id: 5, templateCode: "ORDER_CONFIRMED",      to: "555 08776", toName: "Tech Bazaar",        body: "Order confirmed. Will be dispatched in 24 hours.",                                            status: "SENT",      gateway: "Nexa SMS",  cost: 1.2,  sentAt: "30 Apr · 12:15 PM" },
+  { id: 6, templateCode: "PAYMENT_DUE_TOMORROW", to: "555 07889", toName: "Mobile Mart Eastvale", body: "Reminder: Invoice INV-MM-024 of USD 64,500 is due tomorrow.",                                 status: "FAILED",    gateway: "Nexa SMS",  cost: 0,    sentAt: "30 Apr · 09:00 AM" },
+  { id: 7, templateCode: "ORDER_DELIVERED",      to: "555 04556", toName: "Fairview Mobile Mart", body: "Your order ORD-NGT-26-0088 has been delivered. Thank you for your business!",                 status: "DELIVERED", gateway: "Orbit SMS", cost: 1.5,  sentAt: "29 Apr · 04:30 PM" },
 ];
 
 export default function SMSHistoryPage() {
@@ -49,7 +50,7 @@ export default function SMSHistoryPage() {
     { key: "templateCode", header: "Template", cell: (s) => <Badge variant="muted">{s.templateCode}</Badge> },
     { key: "body", header: "Body", cell: (s) => <span className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 max-w-md">{s.body}</span> },
     { key: "gateway", header: "Gateway", cell: (s) => <span className="text-xs text-slate-600 dark:text-slate-300">{s.gateway}</span> },
-    { key: "cost", header: "Cost", align: "right", cell: (s) => <span className="tabular text-xs text-slate-600 dark:text-slate-300">PKR {s.cost.toFixed(2)}</span> },
+    { key: "cost", header: "Cost", align: "right", cell: (s) => <span className="tabular text-xs text-slate-600 dark:text-slate-300">{formatMoney(s.cost)}</span> },
     { key: "sentAt", header: "Sent", cell: (s) => <span className="text-xs text-slate-500 dark:text-slate-400">{s.sentAt}</span> },
     { key: "status", header: "Status", cell: (s) => (
         <StatusPill variant={s.status === "DELIVERED" ? "success" : s.status === "SENT" ? "info" : s.status === "QUEUED" ? "warning" : "danger"}>
@@ -103,7 +104,7 @@ export default function SMSHistoryPage() {
           <div className="flex items-center justify-between">
             <div>
               <div className="text-2xs uppercase font-semibold tracking-wider text-slate-500 dark:text-slate-400">Cost (Month)</div>
-              <div className="text-2xl tabular font-bold text-navy-900 dark:text-white mt-1">PKR 5,420</div>
+              <div className="text-2xl tabular font-bold text-navy-900 dark:text-white mt-1">$54.20</div>
             </div>
             <Clock className="size-5 text-warning" />
           </div>
